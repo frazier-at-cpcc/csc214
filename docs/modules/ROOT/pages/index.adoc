@@ -1,0 +1,12 @@
+= Welcome to the Documentation Site
+
+This is the home page of your documentation site powered by https://antora.org[Antora].
+
+== Getting Started
+
+Edit the AsciiDoc files in `docs/modules/ROOT/pages/` to add your content.
+
+== Learn More
+
+* https://docs.antora.org[Antora Documentation]
+* https://docs.asciidoctor.org/asciidoc/latest/[AsciiDoc Language Documentation]
