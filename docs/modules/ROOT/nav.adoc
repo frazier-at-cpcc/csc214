@@ -1,1 +1,21 @@
 * xref:index.adoc[Home]
+
+.Part I: Foundations
+* xref:chapter-1.adoc[Chapter 1: Introduction to the AI-900 Exam]
+* xref:chapter-2.adoc[Chapter 2: Azure AI Services]
+
+.Part II: AI Concepts and Workloads
+* xref:chapter-3.adoc[Chapter 3: AI Workloads and Key Use Cases]
+* xref:chapter-4.adoc[Chapter 4: Fundamental Principles of Machine Learning]
+
+.Part III: Azure AI Services in Practice
+* xref:chapter-5.adoc[Chapter 5: Azure Machine Learning]
+* xref:chapter-6.adoc[Chapter 6: Computer Vision Workloads on Azure]
+* xref:chapter-7.adoc[Chapter 7: NLP Workloads on Azure]
+* xref:chapter-8.adoc[Chapter 8: Generative AI Workloads on Azure]
+
+.Part IV: Exam Preparation
+* xref:chapter-9.adoc[Chapter 9: Exam Strategies and Techniques]
+
+.Appendices
+* xref:appendices.adoc[Quick Reference Tables & Exam Day Checklist]

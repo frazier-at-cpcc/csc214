@@ -1,12 +1,63 @@
-= Welcome to the Documentation Site
+= Azure AI Fundamentals (AI-900): Exam Preparation Guide
+:author: Central Piedmont Community College — CSC-214
+:revdate: Spring 2026
 
-This is the home page of your documentation site powered by https://antora.org[Antora].
+This textbook was developed as an Open Educational Resource for CSC-214: Introduction to Artificial Intelligence at Central Piedmont Community College. It is designed to prepare students for the *Microsoft Azure AI Fundamentals (AI-900)* certification exam while building a genuine understanding of artificial intelligence concepts.
 
-== Getting Started
+The AI-900 certification validates foundational knowledge of AI workloads and how they are implemented on Microsoft Azure. It is an entry-level credential that requires no programming experience or advanced mathematics -- making it accessible to students from all backgrounds and career paths.
 
-Edit the AsciiDoc files in `docs/modules/ROOT/pages/` to add your content.
+== How This Book Is Organized
 
-== Learn More
+This book is organized into four parts that mirror the progression of learning from foundational concepts through exam-day readiness:
 
-* https://docs.antora.org[Antora Documentation]
-* https://docs.asciidoctor.org/asciidoc/latest/[AsciiDoc Language Documentation]
+=== Part I: Foundations
+
+Introduces the AI-900 certification and the Azure platform. These two chapters orient you to what the exam covers, why it matters, and how Azure AI services are structured.
+
+* xref:chapter-1.adoc[Chapter 1: Introduction to the AI-900 Exam]
+* xref:chapter-2.adoc[Chapter 2: Azure AI Services]
+
+=== Part II: AI Concepts and Workloads
+
+Dives into the seven categories of AI workloads tested on the exam and provides a thorough treatment of machine learning principles -- the highest-weighted domain on the exam.
+
+* xref:chapter-3.adoc[Chapter 3: AI Workloads and Key Use Cases]
+* xref:chapter-4.adoc[Chapter 4: Fundamental Principles of Machine Learning]
+
+=== Part III: Azure AI Services in Practice
+
+Covers the four major technical domains: Azure Machine Learning tools, Computer Vision, Natural Language Processing, and Generative AI. Each chapter connects concepts to their corresponding Azure services.
+
+* xref:chapter-5.adoc[Chapter 5: Azure Machine Learning]
+* xref:chapter-6.adoc[Chapter 6: Computer Vision Workloads on Azure]
+* xref:chapter-7.adoc[Chapter 7: NLP Workloads on Azure]
+* xref:chapter-8.adoc[Chapter 8: Generative AI Workloads on Azure]
+
+=== Part IV: Exam Preparation
+
+Provides concrete strategies for study planning, time management, question analysis, and stress management on exam day.
+
+* xref:chapter-9.adoc[Chapter 9: Exam Strategies and Techniques]
+
+=== Appendices
+
+* xref:appendices.adoc[Quick Reference Tables and Exam Day Checklist]
+
+== How to Use This Book
+
+Each chapter follows a consistent structure designed for effective learning:
+
+* *Learning Objectives* at the start of each chapter tell you exactly what you should be able to do after studying the material.
+* *Key Terms* are defined in context and collected in a glossary table at the end of each chapter.
+* *Admonition blocks* (Notes, Tips, and Important callouts) highlight exam-critical information, study strategies, and common misconceptions.
+* *Visual diagrams and figures* throughout each chapter illustrate concepts that are difficult to grasp from text alone.
+* *Review Questions* at the end of each chapter test your understanding and encourage active recall.
+
+For the best results, study the chapters in order, attempt the review questions without looking back at the text, and revisit the domain-specific review strategies in Chapter 9 during your final preparation week.
+
+== License
+
+Copyright (C) 2026 Central Piedmont Community College. +
+This work is licensed under a https://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International License (CC BY 4.0)].
+
+This textbook is an *Open Educational Resource (OER)*. Microsoft, Azure, and related product names are trademarks of Microsoft Corporation. This publication is not affiliated with, endorsed by, or sponsored by Microsoft Corporation.

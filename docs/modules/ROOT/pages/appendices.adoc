@@ -1,0 +1,135 @@
+= Appendices
+
+== Appendix A: Quick Reference — Azure AI Services by Workload
+
+This appendix provides a consolidated reference mapping AI workloads to their corresponding Azure services. Use it as a study aid during your final review.
+
+[cols="30%,35%,35%", options="header"]
+|===
+|Workload Category |Primary Azure Service |Key Capabilities
+
+|*Content Moderation*
+|Azure AI Content Safety
+|Text, image, and video moderation; prompt shields; groundedness detection
+
+|*Personalization*
+|Azure AI Personalizer
+|Reinforcement learning-based content personalization; real-time recommendations
+
+|*Computer Vision*
+|Azure AI Vision, Custom Vision, AI Face
+|Image classification, object detection, OCR, facial detection, video analysis
+
+|*Natural Language Processing*
+|Azure AI Language, Translator, Speech
+|NER, sentiment analysis, key phrase extraction, translation, speech-to-text, text-to-speech
+
+|*Knowledge Mining*
+|Azure AI Search
+|Ingest-enrich-explore pipeline; AI-powered indexing of unstructured data
+
+|*Document Intelligence*
+|Azure AI Document Intelligence
+|Extract structured data from invoices, receipts, forms, and contracts
+
+|*Generative AI*
+|Azure OpenAI Service, Azure AI Foundry
+|Text generation, code generation, image generation (DALL-E), embeddings, chat completions
+|===
+
+== Appendix B: Quick Reference — Responsible AI Principles
+
+Microsoft's six principles of Responsible AI appear across multiple exam domains. Memorize these principles and the keywords that signal each one in exam questions.
+
+[cols="20%,40%,40%", options="header"]
+|===
+|Principle |Definition |Exam Keywords
+
+|*Fairness*
+|AI systems should treat all people equitably and avoid affecting similarly situated groups in different ways.
+|bias, equitable, demographic parity, disparate impact
+
+|*Reliability & Safety*
+|AI systems should perform reliably and safely under both normal and unexpected conditions.
+|fail gracefully, edge cases, testing, robust, consistent
+
+|*Privacy & Security*
+|AI systems should be secure and respect privacy.
+|data protection, consent, encryption, access controls, compliance
+
+|*Inclusiveness*
+|AI systems should empower everyone and engage people, including people with disabilities.
+|accessibility, assistive, underserved, diverse populations
+
+|*Transparency*
+|AI systems should be understandable and people should be informed about how they work.
+|explainability, interpretability, documentation, disclose, XAI
+
+|*Accountability*
+|People should be accountable for AI systems and their outcomes.
+|governance, oversight, audit, human-in-the-loop, responsible deployment
+|===
+
+== Appendix C: Quick Reference — Machine Learning Technique Selector
+
+Use this decision guide to quickly identify the correct ML technique for exam scenario questions.
+
+[cols="25%,25%,25%,25%", options="header"]
+|===
+|Question to Ask |If Yes... |Technique |Example
+
+|Do you have labeled data and want to predict a *continuous number*?
+|Predict a numeric value
+|*Regression*
+|Predict house prices, forecast sales
+
+|Do you have labeled data and want to predict a *category*?
+|Two categories
+|*Binary Classification*
+|Spam/not spam, pass/fail
+
+|
+|Three or more categories
+|*Multiclass Classification*
+|Classify animal species, categorize support tickets
+
+|Do you have *no labels* and want to discover natural groupings?
+|Find hidden patterns
+|*Clustering*
+|Customer segmentation, anomaly detection
+
+|Do you need to process *images, text, or speech* with complex patterns?
+|High-dimensional data
+|*Deep Learning*
+|Image recognition, language translation, speech synthesis
+|===
+
+== Appendix D: Exam Day Checklist
+
+Print or bookmark this page for the day of your exam.
+
+*One Week Before*::
+[ ] Review all chapter summaries and key terms +
+[ ] Complete the Microsoft Learn practice assessment +
+[ ] Identify your weakest domain and study it specifically +
+[ ] Confirm your exam appointment details (time, location or system requirements)
+
+*The Night Before*::
+[ ] Review the keyword-to-concept mapping (Chapter 9, Section 9.4.3) +
+[ ] Review the Responsible AI principles one final time +
+[ ] Set alarms with buffer time +
+[ ] Get a full night of sleep
+
+*Exam Day*::
+[ ] Eat a light meal and hydrate +
+[ ] Arrive or log in 15 minutes early +
+[ ] For online exams: close all applications, clear your desk, test your webcam and internet +
+[ ] For test centers: bring two forms of valid ID
+
+*During the Exam*::
+[ ] Read each question completely before looking at the answers +
+[ ] Watch for negative qualifiers: _not_, _except_, _least_ +
+[ ] Use the two-pass strategy: answer confident questions first, flag uncertain ones +
+[ ] Check pacing at 15 minutes (1/3 done), 30 minutes (2/3 done), 40 minutes (all answered) +
+[ ] Use process of elimination on every uncertain question +
+[ ] Breathe. You prepared for this.

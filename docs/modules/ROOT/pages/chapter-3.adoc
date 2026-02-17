@@ -1,0 +1,657 @@
+
+[[ch-3]]
+= Overview of AI Workloads and Key Use Cases
+
+
+== Learning Objectives
+
+By the end of this chapter, you will be able to:
+
+[arabic]
+. Explain what an AI workload is and identify the major categories of AI workloads tested on the AI-900 exam
+. Describe the relationship among artificial intelligence, machine learning, deep learning, and generative AI
+. Compare common AI workload types — including content moderation, personalization, computer vision, natural language processing, knowledge mining, document intelligence, and generative AI
+. Identify which Azure AI service corresponds to each workload category
+. List and explain Microsoft's six guiding principles for responsible AI
+. Apply responsible AI principles to real-world scenarios involving fairness, privacy, and accountability
+
+[NOTE]
+====
+This chapter builds on the platform overview in xref:chapter-2.adoc#ch-2[Chapter 2] (Azure AI Services). If you have not yet reviewed how Azure AI resources are created and accessed, complete xref:chapter-2.adoc#ch-2[Chapter 2] first.
+====
+
+
+
+[[sec-3-1]]
+== 3.1 What Is an AI Workload?
+
+.Figure 3.2: AI Workload Categories Overview
+image::ch3/visual_3_2_workload_categories.png[Grid of seven AI workload category cards: Content Moderation; Personalization; Computer Vision; NLP; Knowledge Mining; Document Intelligence; Generative AI,width=85%]
+
+
+In cloud computing, the term *workload* refers to a distinct set of tasks or operations that a system performs. An *AI workload* is a workload in which those tasks are powered by artificial intelligence — meaning the system uses algorithms, statistical models, or neural networks to analyze data, recognize patterns, make predictions, or generate content.
+
+The AI-900 exam organizes AI capabilities into several workload categories. Each category represents a different way that AI can be applied to solve problems. Understanding these categories is important for two reasons: first, the exam tests your ability to distinguish among them; second, recognizing the right workload for a given business problem is a core skill for anyone evaluating or implementing AI solutions.
+
+[width="100%",cols="50%,50%",options="header",]
+|===
+|AI Workload Category |Core Purpose
+|*Content Moderation* |Detect and filter harmful or inappropriate content
+|*Personalization* |Tailor experiences and recommendations to individual users
+|*Computer Vision* |Analyze and interpret visual data (images and video)
+|*Natural Language Processing (NLP)* |Understand and generate human language
+|*Knowledge Mining* |Extract insights from large volumes of unstructured data
+|*Document Intelligence* |Extract structured data from individual documents
+|*Generative AI* |Create new content such as text, images, code, or audio
+|===
+
+.Definition: AI Workload
+****
+A category of tasks performed by a system that relies on artificial intelligence techniques. Each workload type addresses a different kind of problem, from analyzing images to understanding spoken language to generating original content.
+****
+
+
+
+[[sec-3-2]]
+== 3.2 The AI Technology Stack
+
+.Figure 3.1: The AI Technology Stack (Concentric Circles)
+image::ch3/visual_3_1_ai_tech_stack.png[Concentric circles showing AI containing ML containing Deep Learning containing Generative AI,width=70%]
+
+
+Before exploring individual workloads, it helps to understand how the core technologies relate to one another. AI is not a single technology — it is a collection of technologies that build upon each other in layers.
+
+=== 3.2.1 Artificial Intelligence (AI)
+
+At the broadest level, *artificial intelligence* encompasses any technology that enables machines to simulate aspects of human intelligence. This includes reasoning, problem solving, decision making, language comprehension, and perception. AI systems may be rule-based (following explicitly programmed logic) or data-driven (learning patterns from data).
+
+=== 3.2.2 Machine Learning (ML)
+
+*Machine learning* is a subset of AI focused on algorithms that learn from data rather than following hard-coded instructions. An ML model is trained on a dataset, identifies patterns within that data, and then uses those patterns to make predictions or decisions on new, unseen data. The model's performance generally improves as it is exposed to more data over time.
+
+Machine learning encompasses several learning paradigms, including supervised learning (learning from labeled data), unsupervised learning (finding patterns in unlabeled data), and reinforcement learning (learning through trial and error with feedback). Reinforcement learning is explored further in the context of personalization in <<sec-3-4,Section 3.4>>.
+
+Common ML applications include recommendation engines, fraud detection, and predictive maintenance.
+
+=== 3.2.3 Deep Learning (DL)
+
+*Deep learning* is a specialized branch of machine learning that uses artificial neural networks with multiple processing layers. These layered networks — loosely inspired by biological neural structures — can learn hierarchical representations of data, enabling them to handle highly complex tasks such as image recognition, speech processing, and language translation.
+
+=== 3.2.4 Generative AI
+
+*Generative AI* sits within deep learning and focuses specifically on creating new content. Rather than classifying or predicting, generative models produce original text, images, audio, video, or code based on patterns learned during training. *Large language models* (*LLMs*) — neural networks trained on vast amounts of text data that can generate coherent, contextually relevant language (covered in detail in <<sec-3-9,Section 3.9>> and xref:chapter-8.adoc#ch-8[Chapter 8]) — and image generation models are prominent examples of generative AI.
+
+[TIP]
+====
+Picture these four technologies as concentric circles. AI is the outermost circle. Machine learning fits inside AI. Deep learning fits inside ML. Generative AI fits inside deep learning. This nesting relationship is a frequent topic on the AI-900 exam.
+====
+
+
+
+[[sec-3-3]]
+== 3.3 Content Moderation
+
+.Figure 3.8: Content Moderation Capabilities
+image::ch3/visual_3_8_content_moderation.png[Layered diagram showing base and advanced content moderation capabilities,width=85%]
+
+
+*Content moderation* is the process of detecting and filtering harmful, offensive, or inappropriate material before it reaches end users. Organizations that operate social media platforms, online communities, forums, or e-commerce marketplaces rely on content moderation to keep their digital environments safe and compliant with regulations.
+
+=== Why Content Moderation Matters
+
+Without effective moderation, platforms risk exposing users to hate speech, explicit material, misinformation, or other harmful content. Beyond user safety, regulatory compliance is a growing concern — many jurisdictions now require platforms to take active steps to remove illegal content.
+
+=== Capabilities of AI-Powered Content Moderation
+
+AI-based content moderation systems can analyze multiple types of media:
+
+[width="100%",cols="50%,50%",options="header",]
+|===
+|Capability |Description
+|*Text moderation* |Scans written content for profanity, hate speech, sexually explicit language, and other policy violations
+|*Image moderation* |Analyzes images for adult content, violent imagery, or other inappropriate visual material
+|*Video moderation* |Evaluates video content frame by frame, flagging segments that contain policy-violating material
+|*Custom filtering* |Allows organizations to define custom blocklists and categories tailored to their specific policies
+|===
+
+=== Advanced Safety Features
+
+Modern content safety platforms go beyond basic filtering. They include:
+
+* *Prompt shields* — Evaluate user inputs directed at large language models (Large language models are covered in detail in <<sec-3-9,Section 3.9>> and xref:chapter-8.adoc#ch-8[Chapter 8].) to identify attempts to manipulate or "`jailbreak`" the AI
+* *Groundedness detection* — Assess whether AI-generated text is supported by provided source materials, reducing the risk of fabricated information
+* *Protected material detection* — Identify known copyrighted content (such as published lyrics or articles) appearing in AI-generated output
+
+=== Real-World Applications
+
+Real-world applications include social media platforms removing hate speech and harassment, e-commerce sites blocking fraudulent product listings, and educational platforms filtering age-inappropriate content.
+
+.Definition: Groundedness
+****
+The degree to which an AI system's output is supported by verifiable source material. A "`grounded`" response stays faithful to the facts in its reference data rather than generating unsupported claims.
+****
+
+
+
+[[sec-3-4]]
+== 3.4 Personalization
+
+*Personalization* refers to the practice of tailoring content, products, or experiences to individual users based on their behavior, preferences, and context. AI-driven personalization goes beyond simple rules like "`show products in the user's preferred language.`" It uses machine learning — specifically *reinforcement learning* — to continuously improve the quality of its recommendations.
+
+.Definition: Reinforcement Learning
+****
+A type of machine learning in which an agent learns to make decisions by receiving feedback (rewards or penalties) for its actions within an environment.
+****
+
+
+=== How Reinforcement Learning Powers Personalization
+
+.Figure 3.9: Reinforcement Learning Feedback Loop
+image::ch3/visual_3_9_rl_loop.png[Circular flow diagram showing Context; Action; Reward; and Learning Update cycle,width=70%]
+
+
+In a reinforcement learning system, the AI takes an action (such as recommending a product), receives feedback on whether the action was successful (for example, the user clicked the recommendation), and uses that feedback to improve future decisions. The core components are:
+
+[width="100%",cols="50%,50%",options="header",]
+|===
+|Component |Role
+|*Context* |Information about the current situation — user profile, device type, location, time of day
+|*Actions* |The set of possible choices the system can make — a list of products, articles, or layout options
+|*Reward* |A numerical score (typically between 0 and 1) indicating how successful the chosen action was
+|===
+
+Over time, the system learns which actions produce the highest rewards in which contexts, resulting in increasingly accurate personalization.
+
+=== Real-World Examples
+
+* An e-commerce site recommending products based on browsing history and purchase patterns
+* A news application ordering articles based on a reader's past engagement
+* A streaming service suggesting content based on viewing habits and ratings
+
+.Reflection
+****
+Think about the last time a website or app seemed to "`know`" what you wanted. What signals might the personalization system have used — your location, the time of day, your past behavior — to make that recommendation?
+****
+
+
+
+[[sec-3-5]]
+== 3.5 Computer Vision
+
+*Computer vision* is a branch of AI that enables machines to interpret and analyze visual information from images and videos. The goal is to replicate aspects of human visual perception — recognizing objects, reading text, detecting faces, and understanding scenes.
+
+=== Core Computer Vision Capabilities
+
+[width="100%",cols="50%,50%",options="header",]
+|===
+|Capability |Description
+|*Image analysis* |Extracts descriptive metadata from images, including identified objects, tags, and auto-generated captions
+|*Optical Character Recognition (OCR)* |Recognizes and extracts printed or handwritten text from images and scanned documents
+|*Object detection* |Identifies specific objects within an image and provides their positions (bounding boxes) and counts
+|*Face detection and recognition* |Locates human faces in images and can analyze attributes or verify identity
+|*Video analysis* |Processes video feeds for tasks such as motion tracking, spatial analysis, and scene indexing
+|===
+
+=== Practical Applications
+
+Computer vision is used across industries:
+
+* *Retail:* Automated checkout systems that identify products without barcodes
+* *Healthcare:* Analyzing medical images (X-rays, MRIs) to assist in diagnosis
+* *Manufacturing:* Inspecting products on assembly lines for defects
+* *Transportation:* Enabling autonomous vehicles to detect pedestrians, lane markings, and road signs
+* *Digital asset management:* Organizing media libraries by automatically tagging and captioning images
+
+.Definition: OCR
+****
+A technology that converts images of text — whether printed in a document, written by hand, or captured in a photograph — into machine-readable text data.
+****
+
+
+
+[[sec-3-6]]
+== 3.6 Natural Language Processing (NLP)
+
+*Natural language processing* is a field of AI dedicated to enabling machines to understand, interpret, and generate human language — both written and spoken. NLP is what powers virtual assistants, chatbots, translation services, and text analytics tools.
+
+=== Why NLP Is Challenging
+
+Human language is inherently complex and ambiguous. People use slang, idioms, sarcasm, and context-dependent meaning. The same word can mean different things in different sentences ("`bank`" as a financial institution versus the bank of a river). NLP systems must handle this variability to produce useful results.
+
+A key concept within NLP is *semantics* — understanding the _meaning_ behind words and sentences, not just identifying the words themselves. Semantic understanding is what allows an NLP system to interpret "`What's the weather like?`" as a request for a forecast rather than a question about the definition of weather.
+
+.Definition: Semantics
+****
+In the context of NLP, the study of meaning in language — the ability to understand what a user intends rather than just the literal words used.
+****
+
+
+=== Common NLP Capabilities
+
+.Figure 3.11: NLP Capabilities Quick Reference
+image::ch3/visual_3_11_nlp_capabilities.png[Card grid showing ten NLP capabilities with icons and descriptions,width=85%]
+
+
+The following table describes the major NLP capabilities you should know for the AI-900 exam.
+
+[width="100%",cols="50%,50%",options="header",]
+|===
+|Capability |What It Does
+|*Named Entity Recognition (NER)* |Identifies and classifies entities in text — people, places, organizations, dates, quantities
+|*Personally Identifiable Information (PII) detection* |Finds sensitive data such as phone numbers, Social Security numbers, and email addresses
+|*Language detection* |Determines which language a document or passage is written in
+|*Sentiment analysis* |Evaluates whether text expresses positive, negative, or neutral sentiment
+|*Key phrase extraction* |Identifies the main concepts and topics in a body of text
+|*Summarization* |Condenses a document into its most important sentences or ideas
+|*Entity linking* |Connects recognized entities to external knowledge bases (such as Wikipedia) for disambiguation
+|*Custom text classification* |Trains a model to categorize documents into user-defined categories
+|*Conversational language understanding* |Builds models that interpret user intent and extract key details from conversational input
+|*Question answering* |Returns the most relevant answer to a natural-language question from a body of source material
+|===
+
+.Definition: Named Entity Recognition (NER)
+****
+An NLP technique that identifies and classifies entities in text — such as people, places, organizations, and dates — enabling automated extraction of structured information from unstructured text.
+****
+
+
+.Definition: Sentiment Analysis
+****
+An NLP capability that evaluates whether a body of text expresses positive, negative, or neutral sentiment, often used to gauge customer satisfaction or public opinion.
+****
+
+
+=== Practical Applications
+
+The following scenarios illustrate how specific NLP capabilities map to real-world use cases:
+
+* A *customer service center* uses _sentiment analysis_ to prioritize negative reviews for immediate response, ensuring dissatisfied customers receive timely attention.
+* A *legal firm* uses _named entity recognition_ to extract names, dates, and organizations from contracts, reducing manual review time by hours per document.
+* A *hospital* uses _speech recognition_ to transcribe physician notes into electronic health records, improving documentation accuracy and freeing clinicians to focus on patient care.
+* A *global retailer* uses _machine translation_ to localize product descriptions across 20 languages, enabling consistent customer experiences worldwide.
+
+[TIP]
+====
+The AI-900 exam may describe a scenario and ask you which NLP capability applies. Practice mapping scenarios to capabilities. For example, "`A company wants to monitor customer reviews to gauge satisfaction`" maps to _sentiment analysis_.
+====
+
+
+
+[[sec-3-7]]
+== 3.7 Knowledge Mining
+
+*Knowledge mining* uses AI to extract meaningful insights from large, often unstructured data sources. While traditional search relies on keywords and structured metadata, knowledge mining enhances raw data with AI-driven enrichments so that users can discover patterns, relationships, and information that would otherwise remain hidden.
+
+=== Structured vs. Unstructured Data
+
+.Figure 3.10: Structured vs. Unstructured Data
+image::ch3/visual_3_10_structured_unstructured.png[Two-panel comparison showing structured data as a table and unstructured data as mixed document types,width=85%]
+
+
+[width="100%",cols="34%,33%,33%",options="header",]
+|===
+|Data Type |Characteristics |Examples
+|*Structured data* |Organized in a predefined format with rows and columns; easily searchable |Databases, spreadsheets, CSV files
+|*Unstructured data* |No predefined format; difficult to search using traditional methods |Emails, PDFs, images, videos, social media posts
+|===
+
+Most organizational data is unstructured. Knowledge mining is specifically designed to make unstructured data accessible and actionable.
+
+=== The Knowledge Mining Pipeline
+
+.Figure 3.6: Knowledge Mining Pipeline
+image::ch3/visual_3_6_knowledge_mining.png[Three-stage pipeline showing Ingest; Enrich; and Explore stages of knowledge mining,width=85%]
+
+
+Knowledge mining typically follows a three-stage process:
+
+[arabic]
+. *Ingest* — Gather data from multiple sources (databases, file shares, cloud storage, web content)
+. *Enrich* — Apply AI skills to the data — for example, extracting text from images via OCR, detecting languages, identifying key phrases, recognizing entities, or translating content
+. *Explore* — Make the enriched data searchable through indexes, visualizations, and analytics tools
+
+=== Key Features
+
+* *Cognitive skills* — Prebuilt AI models that automatically extract and structure information from text, images, and other media
+* *Custom enrichments* — The ability to build and apply your own AI models for domain-specific data processing
+* *Customizable indexing* — Creation of searchable indexes tailored to specific use cases and query patterns
+* *Integration with search services* — Seamless connection to search-as-a-service platforms for scalable query handling
+
+For example, a law firm might use knowledge mining to search across 500,000 archived case documents to find precedents relevant to an upcoming trial, surfacing connections that would take human researchers weeks to discover.
+
+[NOTE]
+====
+Information that does not follow a predefined data model or format. Unlike rows and columns in a database, unstructured data includes free-form text, images, audio, and video. Knowledge mining is designed to unlock value from this type of data.
+====
+
+
+[NOTE]
+====
+Think of a situation where finding a hidden connection in a large collection of documents could reveal something important — fraud patterns, medical trends, or legal precedents. How would the knowledge mining pipeline (ingest, enrich, explore) help make that connection visible?
+====
+
+
+
+[[sec-3-8]]
+== 3.8 Document Intelligence
+
+*Document intelligence* (also called *document AI*) uses AI to automate the extraction, comprehension, and organization of data from documents such as invoices, receipts, forms, tax documents, and contracts. The goal is to convert unstructured or semi-structured document content into structured, machine-readable data.
+
+=== Document Intelligence vs. Knowledge Mining
+
+.Figure 3.7: Document Intelligence vs. Knowledge Mining
+image::ch3/visual_3_7_doc_intel_vs_mining.png[Side-by-side comparison of Document Intelligence (single documents) and Knowledge Mining (organizational data),width=85%]
+
+
+These two workloads can seem similar because both deal with extracting information (see <<sec-3-7,Section 3.7>>). The key distinction lies in scope:
+
+[width="100%",cols="34%,33%,33%",options="header",]
+|===
+|Dimension |Document Intelligence |Knowledge Mining
+|*Scope* |Individual documents |Large volumes of data across an organization
+|*Primary goal* |Extract and structure specific data fields from a document |Discover patterns, relationships, and insights across many data sources
+|*Typical use case* |Automating invoice processing or form data entry |Searching across thousands of documents to find related information
+|===
+
+=== Model Types for Document Extraction
+
+Document intelligence platforms typically offer three categories of extraction models:
+
+[width="100%",cols="34%,33%,33%",options="header",]
+|===
+|Model Type |Description |When to Use
+|*General extraction* |Works across many document types without customization; extracts text, tables, key-value pairs, and layout |When handling diverse document types with no specialized training
+|*Prebuilt* |Ready-to-use models trained for common document types such as invoices, receipts, ID cards, and tax forms |When processing standard, widely used document formats
+|*Custom* |Models trained on your own labeled data to extract fields specific to your business |When dealing with proprietary or unusual document layouts
+|===
+
+.Reflection
+****
+Consider a process at your workplace (or one you have observed) that involves manually entering data from paper forms or PDF documents into a digital system. How might document intelligence reduce errors and save time in that process?
+****
+
+
+
+[[sec-3-9]]
+== 3.9 Generative AI
+
+*Generative AI* refers to AI models that can produce new content — text, images, code, audio, or video — rather than simply analyzing or classifying existing data. These models learn patterns from massive training datasets and use those patterns to generate original output in response to user prompts.
+
+=== Key Generative AI Concepts
+
+[width="100%",cols="50%,50%",options="header",]
+|===
+|Concept |Description
+|*Large Language Model (LLM)* |A neural network trained on vast amounts of text data, capable of generating coherent and contextually relevant text
+|*Prompt* |The input text or instruction provided to a generative AI model to guide its output
+|*Fine-tuning* |The process of further training a pre-existing model on a smaller, domain-specific dataset to improve its performance for a particular task
+|*Retrieval-Augmented Generation (RAG)* |A technique that combines a generative model with a search system, allowing the model to retrieve relevant information from a specific dataset before generating a response
+|===
+
+=== How RAG Works
+
+.Figure 3.3: Retrieval-Augmented Generation (RAG) Architecture
+image::ch3/visual_3_3_rag_architecture.png[Flow diagram showing user query to knowledge base retrieval to grounded response generation,width=85%]
+
+
+Retrieval-Augmented Generation addresses one of the key limitations of standalone generative models: they can only draw on knowledge from their training data, which may be outdated or incomplete. RAG works by:
+
+[arabic]
+. *Receiving a user query* — The user asks a question or provides a prompt
+. *Searching a knowledge base* — The system retrieves relevant documents or passages from an indexed data source
+. *Generating a grounded response* — The generative model uses the retrieved information to produce an answer that is specific and factually grounded (see <<sec-3-3,Section 3.3>> for groundedness)
+
+This approach is particularly valuable for enterprise applications where the AI needs to answer questions about internal policies, product documentation, or other proprietary information.
+
+=== Creative and Business Applications
+
+* *Text generation* — Drafting emails, reports, summaries, and marketing copy
+* *Code generation* — Writing, explaining, and debugging code based on natural-language descriptions
+* *Image generation* — Creating original visuals from text prompts for design, marketing, and media
+* *Conversational agents* — Building chatbots and virtual assistants that can hold natural, context-aware conversations
+
+.Definition: Retrieval-Augmented Generation (RAG)
+****
+A technique that enhances a generative AI model by first retrieving relevant information from an external data source, then using that information to produce a more accurate and contextually grounded response.
+****
+
+
+
+[[sec-3-10]]
+== 3.10 Summary of Azure AI Services by Workload
+
+.Figure 3.5: Azure AI Services-to-Workload Mapping
+image::ch3/visual_3_5_services_workload_map.png[Connector diagram mapping seven workload categories to their corresponding Azure services,width=85%]
+
+
+For the AI-900 exam, it is important to know which Azure service corresponds to each workload category. The following table provides a consolidated reference.
+
+[width="100%",cols="34%,33%,33%",options="header",]
+|===
+|Workload |Azure Service |Key Capabilities
+|*Content Moderation* (<<sec-3-3,Section 3.3>>) |Azure AI Content Safety |Text and image moderation, prompt shields, groundedness detection, protected material detection, custom categories
+|*Personalization* (<<sec-3-4,Section 3.4>>) |Azure AI Personalizer (retired September 2023; see note below) |Context-aware recommendations using reinforcement learning (context, actions, reward)
+|*Computer Vision* (<<sec-3-5,Section 3.5>>) |Azure AI Vision |Image analysis, OCR, object detection, face recognition, video analysis, digital asset management
+|*NLP* (<<sec-3-6,Section 3.6>>) |Azure AI Language |NER, PII detection, language detection, sentiment analysis, summarization, key phrase extraction, custom text classification, conversational language understanding, question answering
+|*Knowledge Mining* (<<sec-3-7,Section 3.7>>) |Azure AI Search (with cognitive skills) |Cognitive skills, enrichment, customizable indexing, integration with search services
+|*Document Intelligence* (<<sec-3-8,Section 3.8>>) |Azure AI Document Intelligence |General extraction models, prebuilt models (invoices, receipts, IDs, tax forms), custom models
+|*Generative AI* (<<sec-3-9,Section 3.9>>) |Azure OpenAI Service |Large language models for text generation, image generation (DALL-E), and speech-to-text capabilities. (Model availability changes frequently; see the Azure OpenAI documentation for current offerings.)
+|===
+
+[NOTE]
+====
+*Note:* Azure AI Personalizer was retired in September 2023. The AI-900 exam skills outline is updated periodically — always verify service availability against the current official outline before your exam.
+====
+
+
+[TIP]
+====
+The exam may present a business scenario and ask you to select the correct Azure service. Focus on the _primary purpose_ of each service. For example, if the question describes extracting data from invoices, the answer is Azure AI Document Intelligence — not knowledge mining, even though both involve data extraction.
+====
+
+
+
+[[sec-3-11]]
+== 3.11 Guiding Principles for Responsible AI
+
+.Figure 3.4: Six Principles of Responsible AI
+image::ch3/visual_3_4_responsible_ai.png[Hexagonal diagram showing Fairness; Reliability and Safety; Privacy and Security; Inclusiveness; Transparency; and Accountability,width=70%]
+
+
+AI is a powerful tool, but it also introduces risks — bias, privacy violations, safety failures, and opaque decision making, to name a few. To address these risks, Microsoft has established six *guiding principles for responsible AI*: Fairness, Reliability and Safety, Privacy and Security, Inclusiveness, Transparency, and Accountability. These principles are a significant topic on the AI-900 exam.
+
+As a study aid, these principles can be grouped into two broad themes:
+
+* *Ethical AI* — Ensuring AI systems align with moral values (Fairness, Inclusiveness, Accountability)
+* *Explainable AI* — Ensuring AI systems are transparent and understandable (Reliability and Safety, Transparency, Privacy and Security)
+
+[NOTE]
+====
+*Note:* This grouping is a pedagogical organizing framework to help you study. Microsoft does not officially divide the six principles into two categories — all six are presented as equally important guiding principles.
+====
+
+
+=== 3.11.1 Accountability
+
+*Accountability* means that the people who design, develop, and deploy AI systems bear responsibility for how those systems operate. AI should not function as a "`black box`" that makes decisions without any human oversight.
+
+Key practices for accountability include:
+
+* Conducting *impact assessments* early in the development process to evaluate how the AI might affect individuals and communities
+* Maintaining *human oversight* so that qualified people can intervene when the system produces unexpected or harmful outcomes
+* Establishing *internal review boards* to govern AI-related decisions, especially in sensitive domains such as healthcare, criminal justice, and employment
+* Adhering to *legal and regulatory requirements* that apply to AI systems in relevant jurisdictions
+
+.Definition: Impact Assessment
+****
+A structured evaluation conducted before or during AI development to identify potential effects — both positive and negative — that the system may have on individuals, communities, and society.
+****
+
+
+=== 3.11.2 Inclusiveness
+
+*Inclusiveness* means designing AI systems that work for as many people as possible, regardless of ability, language, culture, gender, or age. AI should not exclude or marginalize any group of users.
+
+Strategies for building inclusive AI include:
+
+* Assembling *diverse development teams* whose members bring different backgrounds and perspectives
+* Following established *accessibility standards* (such as the Web Content Accessibility Guidelines, or WCAG) to ensure that interfaces are usable by people with disabilities
+* Incorporating *assistive features* such as speech-to-text, text-to-speech, and screen-reader compatibility
+* Partnering with *community organizations* and advocacy groups to understand the needs of underrepresented populations
+
+=== 3.11.3 Reliability and Safety
+
+*Reliability and safety* require that AI systems perform consistently and predictably, even in unexpected conditions. A reliable AI system does what it is designed to do, handles edge cases gracefully, and resists attempts at manipulation.
+
+Key practices include:
+
+* *Thorough testing* across a wide range of scenarios, including edge cases and adversarial inputs
+* *Ongoing monitoring* after deployment, because AI models can degrade over time as the data environment changes
+* *Human judgment* as a check on AI decisions, particularly in high-stakes situations
+* *Regular auditing* to verify that the system continues to meet performance and safety benchmarks
+
+.Reflection
+****
+Consider an AI system used in a safety-critical context, such as an autonomous vehicle or a medical diagnostic tool. What could go wrong if the system encounters a situation it was not trained for? What safeguards would you want in place?
+****
+
+
+=== 3.11.4 Fairness
+
+*Fairness* means that AI systems should not produce biased outcomes that disproportionately benefit or harm particular groups. If an AI system is used to screen loan applications, for example, it should evaluate applicants based on relevant financial criteria — not on characteristics such as gender, race, or zip code that serve as proxies for discrimination.
+
+Key practices include:
+
+* Using *diverse and representative training datasets* that do not encode historical biases
+* *Auditing models* before deployment to detect and correct discriminatory patterns
+* Recognizing that AI predictions have *inherent limitations* and should not replace human judgment in consequential decisions
+* Training staff to *interpret AI outputs critically* and understand where bias might appear
+
+=== 3.11.5 Transparency
+
+*Transparency* (sometimes called *explainability* or *intelligibility*) requires that stakeholders understand how an AI system makes its decisions. When AI is used in decisions that significantly affect people's lives, those affected have a right to understand the basis for the decision.
+
+Key practices include:
+
+* Documenting and sharing information about the *datasets* used to train the model
+* Favoring *interpretable models* when possible, or providing explanations for complex models
+* Being *open with users* about when and why AI is being used in a product or process
+* Training team members to *explain AI outputs* in clear, non-technical language
+
+=== 3.11.6 Privacy and Security
+
+*Privacy and security* require that AI systems protect the data they use and resist attacks that could compromise personal information or system integrity. Because AI systems depend on large amounts of data — often including sensitive personal information — robust data protection is essential.
+
+Key practices include:
+
+* Complying with *data protection regulations* (such as GDPR, CCPA, or HIPAA as applicable)
+* Designing systems to *defend against adversarial attacks*, including data poisoning and model manipulation
+* Providing users with *control over their personal data*, including the ability to access, correct, and delete it
+* *Anonymizing* personal information where possible to reduce the impact of a potential data breach
+* Conducting *regular security and privacy reviews* throughout the system's lifecycle
+
+.Definition: Data Poisoning
+****
+A type of adversarial attack in which an attacker deliberately introduces corrupted or misleading data into a training dataset to compromise the AI model's performance or cause it to produce harmful outputs.
+****
+
+
+
+[[sec-3-12]]
+== 3.12 Responsible AI Principles at a Glance
+
+The following table summarizes all six principles, their core focus, and the key actions associated with each.
+
+[width="100%",cols="34%,33%,33%",options="header",]
+|===
+|Principle |Core Focus |Key Actions
+|*Fairness* |Unbiased and equitable outcomes |Diverse training data, pre-deployment audits, staff training on bias recognition
+|*Reliability and Safety* |Consistent, predictable performance |Thorough testing, ongoing monitoring, human judgment, regular audits
+|*Privacy and Security* |Data protection and system integrity |Regulatory compliance, adversarial defense, user data control, anonymization, security reviews
+|*Inclusiveness* |AI that works for everyone |Diverse teams, accessibility standards, assistive features, community partnerships
+|*Transparency* |Understandable AI decisions |Dataset documentation, interpretable models, open communication, team training
+|*Accountability* |Human responsibility for AI behavior |Impact assessments, human oversight, internal review boards, legal compliance
+|===
+
+[TIP]
+====
+Memorize the six principles — Fairness, Reliability and Safety, Privacy and Security, Inclusiveness, Transparency, and Accountability. Exam questions often describe a scenario and ask which principle is most relevant. Focus on the _primary concern_ in the scenario to select the best answer.
+====
+
+
+
+== Chapter Summary
+
+* An *AI workload* is a category of tasks powered by artificial intelligence. The AI-900 exam covers seven major workload types: content moderation, personalization, computer vision, NLP, knowledge mining, document intelligence, and generative AI.
+* AI technologies are layered: *AI* is the broadest category, *machine learning* is a subset of AI, *deep learning* is a subset of ML, and *generative AI* is a subset of deep learning.
+* *Content moderation* detects and filters harmful material across text, images, and video. Modern platforms also include prompt shields, groundedness detection, and protected material detection.
+* *Personalization* uses *reinforcement learning* (context, actions, reward) to tailor recommendations and experiences to individual users in real time.
+* *Computer vision* enables machines to interpret visual data through capabilities like image analysis, OCR, object detection, face recognition, and video analysis.
+* *NLP* enables machines to understand and generate human language. Key capabilities include NER, sentiment analysis, PII detection, summarization, and question answering.
+* *Knowledge mining* uses AI enrichments to make large volumes of *unstructured data* searchable and actionable through a pipeline of ingest, enrich, and explore.
+* *Document intelligence* extracts structured data from individual documents using general, prebuilt, or custom extraction models. It differs from knowledge mining in scope (single document vs. organizational data estate).
+* *Generative AI* creates new content (text, images, code, audio) using large language models and techniques like *RAG* to ground outputs in specific data sources.
+* Microsoft's six *responsible AI principles* — fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability — provide the ethical framework for developing and deploying AI systems.
+
+xref:chapter-4.adoc#ch-4[Chapter 4] examines the fundamental principles of machine learning in depth, expanding on the ML concepts introduced in <<sec-3-2,Section 3.2>> of this chapter.
+
+
+== Key Terms
+
+[width="100%",cols="50%,50%",options="header",]
+|===
+|Term |Definition
+|*AI Workload* |A category of tasks performed by a system using artificial intelligence techniques to analyze data, recognize patterns, or generate content
+|*Machine Learning (ML)* |A subset of AI in which algorithms learn patterns from data to make predictions or decisions without explicit programming
+|*Deep Learning (DL)* |A subset of machine learning that uses multi-layered artificial neural networks to model complex patterns in data
+|*Generative AI* |AI models capable of creating new content — text, images, code, or audio — based on patterns learned from training data
+|*Content Moderation* |The process of using AI to detect and filter harmful, offensive, or inappropriate material in text, images, or video
+|*Reinforcement Learning* |A type of machine learning where an agent learns to make decisions by receiving feedback (rewards) for its actions
+|*Computer Vision* |A field of AI enabling machines to interpret visual data such as images and video
+|*Optical Character Recognition (OCR)* |Technology that converts images of printed or handwritten text into machine-readable text
+|*Natural Language Processing (NLP)* |A branch of AI focused on enabling computers to understand, interpret, and generate human language
+|*Semantics* |The study of meaning in language; in NLP, the ability to understand what a user intends rather than just the literal words used
+|*Named Entity Recognition (NER)* |An NLP technique that identifies and classifies entities in text, such as people, places, organizations, and dates
+|*Sentiment Analysis* |An NLP capability that determines whether a body of text expresses positive, negative, or neutral sentiment
+|*Knowledge Mining* |The use of AI to extract insights from large volumes of unstructured data through ingestion, enrichment, and exploration
+|*Unstructured Data* |Information without a predefined format, such as emails, PDFs, images, and videos
+|*Structured Data* |Data organized in a standardized format with rows and columns, such as in a database or spreadsheet
+|*Document Intelligence* |The use of AI to extract, comprehend, and organize data from individual documents such as invoices, forms, and receipts
+|*Retrieval-Augmented Generation (RAG)* |A technique that combines a generative AI model with a search system to produce responses grounded in specific reference data
+|*Groundedness* |The degree to which an AI system's output is faithfully supported by verifiable source material
+|*Prompt Shields* |A content safety feature that evaluates user inputs to large language models for manipulation or attack attempts
+|*Responsible AI* |A set of six guiding principles — Fairness, Reliability and Safety, Privacy and Security, Inclusiveness, Transparency, and Accountability — that guide ethical AI development and deployment
+|*Accountability* |The principle that people who build and deploy AI systems are responsible for ensuring those systems operate ethically and safely
+|*Inclusiveness* |The principle that AI systems should be accessible to and work well for people of all abilities, backgrounds, and circumstances
+|*Fairness* |The principle that AI systems should not produce biased outcomes that disproportionately benefit or harm specific groups
+|*Transparency* |The principle that AI decision-making processes should be understandable and explainable to stakeholders
+|*Impact Assessment* |A structured evaluation of the potential positive and negative effects of an AI system on individuals and society
+|*Data Poisoning* |An adversarial attack in which corrupted data is introduced into a training dataset to compromise model performance
+|===
+
+
+== Review Questions
+
+Test your understanding of the material covered in this chapter.
+
+[arabic]
+. *List the seven AI workload categories discussed in this chapter and provide a one-sentence description of each.*
+. *Explain the relationship among AI, machine learning, deep learning, and generative AI. Why is it accurate to describe them as "`nested`" technologies?*
+. *A hospital wants to automatically extract patient names, dates, and diagnosis codes from handwritten intake forms. Which AI workload is most appropriate, and what type of extraction model would you recommend? Justify your answer.*
+. *Compare and contrast knowledge mining and document intelligence. Under what circumstances would an organization use each?*
+. *A social media company discovers that its AI content moderation system is flagging posts written in African American Vernacular English at a much higher rate than posts written in other dialects. Which responsible AI principle is most directly violated, and what steps should the company take to address the issue?*
+. *Describe how Retrieval-Augmented Generation (RAG) works and explain why it is valuable for enterprise applications that need to answer questions about internal company data.*
+. *An AI-powered hiring tool consistently ranks male candidates higher than female candidates for engineering positions, even when qualifications are equivalent. Identify which responsible AI principles are at stake and propose at least two concrete actions to address the problem.*
+. *Explain why transparency is important in AI systems that make consequential decisions (such as loan approvals or medical diagnoses). What specific practices can organizations adopt to improve the transparency of their AI systems?*
+. *Match each of the seven AI workload categories to its corresponding Azure AI service. For two of your choices, briefly explain what distinguishes that service from another service that might seem similar.*
+
+
+== Additional Resources
+
+* https://learn.microsoft.com/en-us/training/paths/get-started-with-artificial-intelligence-on-azure/[Microsoft Learn: AI Fundamentals – AI Overview] (Free)
+* https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/8-understand-responsible-ai[Microsoft Learn: Responsible AI Principles] (Free)
+* https://www.microsoft.com/en-us/ai/responsible-ai[Microsoft Responsible AI Resources] (Free)
+* https://learn.microsoft.com/en-us/azure/ai-services/[Azure AI Services Documentation] (Free)
+* https://www.elementsofai.com/[Elements of AI] (Free course, University of Helsinki)
+* https://pair.withgoogle.com/guidebook/[Google People {plus} AI Guidebook] (Free, useful for responsible AI design patterns)
+* https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/[AI-900 Exam Skills Outline] (Official, always check for updates)
