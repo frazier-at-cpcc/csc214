@@ -1,0 +1,262 @@
+/* ===================================================================
+   CPCC Brand Theme for Antora
+   Central Piedmont Community College Brand Standards
+   =================================================================== */
+
+/* --- CSS Custom Properties (Brand Palette) --- */
+:root {
+  --cpcc-gray: #54565A;
+  --cpcc-gold: #B4A269;
+  --cpcc-teal: #005D83;
+  --cpcc-purple: #672666;
+  --cpcc-gold-orange: #F3C300;
+  --cpcc-dark-gold: #D65F00;
+  --cpcc-gray-light: #f4f3f1;
+  --cpcc-gray-25: #d4d4d6;
+  --cpcc-gold-light: #e8e2d1;
+  --cpcc-teal-dark: #004a69;
+}
+
+/* --- Typography --- */
+body {
+  font-family: "Franklin Gothic URW", "Franklin Gothic", Arial, Roboto, sans-serif;
+  color: var(--cpcc-gray);
+}
+
+h1, h2, h3, h4, h5, h6,
+.doc h1, .doc h2, .doc h3, .doc h4, .doc h5, .doc h6 {
+  font-family: "Franklin Gothic URW", "Franklin Gothic", Arial, Roboto, sans-serif;
+  color: var(--cpcc-gray);
+}
+
+/* --- Top Navbar --- */
+.navbar {
+  background-color: var(--cpcc-gray);
+}
+
+.navbar .navbar-brand .navbar-item {
+  color: var(--cpcc-gold);
+  font-weight: 600;
+}
+
+.navbar .navbar-menu .navbar-item,
+.navbar .navbar-menu a.navbar-item {
+  color: #fff;
+}
+
+.navbar .navbar-menu a.navbar-item:hover {
+  color: var(--cpcc-gold);
+  background-color: rgba(180, 162, 105, 0.1);
+}
+
+.navbar .navbar-burger span {
+  background-color: var(--cpcc-gold);
+}
+
+/* --- Left Navigation Panel --- */
+.nav-panel-menu {
+  background-color: var(--cpcc-gray-light);
+  border-right: 3px solid var(--cpcc-gold);
+}
+
+.nav-panel-menu .nav-title {
+  color: var(--cpcc-gray);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  letter-spacing: 0.05em;
+}
+
+.nav-panel-menu a {
+  color: var(--cpcc-gray);
+}
+
+.nav-panel-menu a:hover {
+  color: var(--cpcc-teal);
+}
+
+.nav-panel-menu .is-current-page > a,
+.nav-panel-menu .is-current-page > a:hover {
+  color: var(--cpcc-teal);
+  font-weight: 600;
+  border-left: 3px solid var(--cpcc-teal);
+  padding-left: calc(0.5rem - 3px);
+}
+
+/* --- Links --- */
+a,
+.doc a {
+  color: var(--cpcc-teal);
+}
+
+a:hover,
+.doc a:hover {
+  color: var(--cpcc-teal-dark);
+}
+
+/* --- Main Content Area --- */
+.doc {
+  color: var(--cpcc-gray);
+}
+
+.doc h1 {
+  color: var(--cpcc-gray);
+  border-bottom: 3px solid var(--cpcc-gold);
+  padding-bottom: 0.4em;
+}
+
+.doc h2 {
+  color: var(--cpcc-gray);
+  border-bottom: 2px solid var(--cpcc-gold-light);
+  padding-bottom: 0.3em;
+}
+
+.doc h3 {
+  color: var(--cpcc-teal);
+}
+
+.doc h4,
+.doc h5,
+.doc h6 {
+  color: var(--cpcc-teal);
+}
+
+/* --- Tables --- */
+.doc table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.doc table thead th {
+  background-color: var(--cpcc-gray);
+  color: #fff;
+  font-weight: 600;
+  border: 1px solid var(--cpcc-gray);
+  padding: 0.6em 0.8em;
+}
+
+.doc table tbody td {
+  border: 1px solid var(--cpcc-gray-25);
+  padding: 0.5em 0.8em;
+}
+
+.doc table tbody tr:nth-child(even) {
+  background-color: var(--cpcc-gray-light);
+}
+
+.doc table tbody tr:hover {
+  background-color: var(--cpcc-gold-light);
+}
+
+/* --- Admonition Blocks --- */
+.doc .admonitionblock td.icon .icon-note::before {
+  color: var(--cpcc-teal);
+}
+
+.doc .admonitionblock td.icon .icon-tip::before {
+  color: var(--cpcc-gold);
+}
+
+.doc .admonitionblock td.icon .icon-important::before {
+  color: var(--cpcc-dark-gold);
+}
+
+.doc .admonitionblock td.icon .icon-warning::before {
+  color: var(--cpcc-gold-orange);
+}
+
+.doc .admonitionblock td.icon .icon-caution::before {
+  color: var(--cpcc-purple);
+}
+
+.doc .admonitionblock {
+  border-left: 3px solid var(--cpcc-gold);
+  background-color: var(--cpcc-gray-light);
+  padding: 0.75em 1em;
+  margin: 1.5em 0;
+}
+
+/* --- Sidebar / Definition Blocks --- */
+.doc .sidebarblock {
+  background-color: var(--cpcc-gray-light);
+  border: 1px solid var(--cpcc-gray-25);
+  border-left: 4px solid var(--cpcc-teal);
+  padding: 1em 1.25em;
+}
+
+.doc .sidebarblock .title {
+  color: var(--cpcc-teal);
+  font-weight: 600;
+}
+
+/* --- Code Blocks --- */
+.doc .listingblock pre,
+.doc .literalblock pre {
+  background-color: var(--cpcc-gray-light);
+  border: 1px solid var(--cpcc-gray-25);
+  border-left: 3px solid var(--cpcc-teal);
+  color: var(--cpcc-gray);
+}
+
+/* --- Footer --- */
+.footer {
+  background-color: var(--cpcc-gray);
+  color: var(--cpcc-gray-25);
+}
+
+.footer a {
+  color: var(--cpcc-gold);
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+/* --- Page Title (Hero-style) --- */
+.doc .page-heading h1,
+.doc > h1.page {
+  font-size: 2em;
+  color: var(--cpcc-gray);
+  border-bottom: 3px solid var(--cpcc-gold);
+  padding-bottom: 0.3em;
+  margin-bottom: 0.8em;
+}
+
+/* --- Breadcrumbs --- */
+.breadcrumbs a {
+  color: var(--cpcc-teal);
+}
+
+.breadcrumbs a:hover {
+  color: var(--cpcc-teal-dark);
+}
+
+/* --- Selection Highlight --- */
+::selection {
+  background-color: var(--cpcc-gold-light);
+  color: var(--cpcc-gray);
+}
+
+/* --- Toolbar / Version Selector --- */
+.toolbar {
+  background-color: var(--cpcc-gray-light);
+  border-bottom: 1px solid var(--cpcc-gray-25);
+}
+
+/* --- Scrollbar Styling (Webkit) --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cpcc-gray-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cpcc-gray-25);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cpcc-gold);
+}
