@@ -18,6 +18,11 @@
   --cpcc-dark-gold: #d65f00;
   --cpcc-icon-reflection: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23005D83' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 5h16v10H9l-5 4V5z'/%3E%3Cpath d='M9 9h6'/%3E%3Cpath d='M9 12h4'/%3E%3C/svg%3E");
   --cpcc-icon-definition: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B4A269' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6a2.5 2.5 0 0 1 2.5-2.5H21v15H5.5A2.5 2.5 0 0 0 3 21V6z'/%3E%3Cpath d='M7 3.5V18.5'/%3E%3Cpath d='M10 8h7'/%3E%3Cpath d='M10 12h7'/%3E%3C/svg%3E");
+  --cpcc-icon-note: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='3.5' width='16' height='17' rx='2'/%3E%3Cpath d='M8 8h8M8 12h8M8 16h5'/%3E%3C/svg%3E");
+  --cpcc-icon-tip: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111111' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 14c-1.3-1-2-2.4-2-4a4 4 0 0 1 8 0c0 1.6-.7 3-2 4-.4.3-.7.8-.7 1.4H8.7c0-.6-.3-1.1-.7-1.4z'/%3E%3Cpath d='M9 18h6M10 20h4'/%3E%3C/svg%3E");
+  --cpcc-icon-important: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='8'/%3E%3Cpath d='M12 8v5'/%3E%3Cpath d='M12 16h.01'/%3E%3C/svg%3E");
+  --cpcc-icon-warning: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4L20 19H4L12 4z'/%3E%3Cpath d='M12 10v4'/%3E%3Cpath d='M12 16h.01'/%3E%3C/svg%3E");
+  --cpcc-icon-caution: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l7 3v5c0 4.5-3.1 7.8-7 9-3.9-1.2-7-4.5-7-9V6l7-3z'/%3E%3Cpath d='M12 9v4'/%3E%3Cpath d='M12 15h.01'/%3E%3C/svg%3E");
 }
 
 body {
@@ -310,37 +315,133 @@ aside.toc.sidebar,
 
 /* Admonitions and side content */
 .doc .admonitionblock {
-  border-left: 4px solid var(--cpcc-gold);
+  border: 0;
+  margin: 1.5rem 0 0;
+}
+
+.doc .admonitionblock > table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.doc .admonitionblock td.icon {
+  left: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  transform: translate(0.75rem, -50%);
+}
+
+.doc .admonitionblock td.icon i {
+  align-items: center;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+  display: inline-flex;
+  font-size: 0.64rem;
+  font-style: normal;
+  font-weight: 600;
+  gap: 0.32rem;
+  height: auto;
+  letter-spacing: 0.09em;
+  line-height: 1;
+  min-height: 1.5rem;
+  padding: 0.28rem 0.58rem 0.28rem 0.42rem;
+  text-transform: uppercase;
+  width: auto;
+}
+
+.doc .admonitionblock td.icon i::before {
+  background-image: var(--cpcc-admonition-icon);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 0.85rem 0.85rem;
+  content: "";
+  display: inline-block;
+  flex: none;
+  height: 0.85rem;
+  width: 0.85rem;
+}
+
+.doc .admonitionblock td.icon i::after {
+  content: attr(title);
 }
 
 .doc .admonitionblock td.content {
-  background: var(--cpcc-gray-surface);
+  background: #ffffff;
   border: 1px solid #ddd7c8;
+  border-left: 5px solid var(--cpcc-gold);
+  border-radius: 0.5rem;
+  padding: 1rem 1rem 0.8rem;
+  width: 100%;
+  word-wrap: anywhere;
 }
 
-.doc .admonitionblock td.icon i.icon-note {
+.doc .admonitionblock td.content > :first-child {
+  margin-top: 0.2rem;
+}
+
+.doc .admonitionblock td.content > :last-child {
+  margin-bottom: 0;
+}
+
+.doc .admonitionblock.note td.icon i.icon-note {
+  --cpcc-admonition-icon: var(--cpcc-icon-note);
   background-color: var(--cpcc-teal);
   color: #ffffff;
 }
 
-.doc .admonitionblock td.icon i.icon-tip {
+.doc .admonitionblock.note td.content {
+  background: linear-gradient(180deg, #f8fbfd 0%, #f2f8fb 100%);
+  border-color: #c9dbe3;
+  border-left-color: var(--cpcc-teal);
+}
+
+.doc .admonitionblock.tip td.icon i.icon-tip {
+  --cpcc-admonition-icon: var(--cpcc-icon-tip);
   background-color: var(--cpcc-gold);
   color: #111111;
 }
 
-.doc .admonitionblock td.icon i.icon-important {
+.doc .admonitionblock.tip td.content {
+  background: linear-gradient(180deg, #fcfaf2 0%, #f9f3e2 100%);
+  border-color: #ded2b0;
+  border-left-color: var(--cpcc-gold);
+}
+
+.doc .admonitionblock.important td.icon i.icon-important {
+  --cpcc-admonition-icon: var(--cpcc-icon-important);
   background-color: var(--cpcc-gray);
   color: #ffffff;
 }
 
-.doc .admonitionblock td.icon i.icon-warning {
+.doc .admonitionblock.important td.content {
+  background: linear-gradient(180deg, #f7f7f8 0%, #f2f3f5 100%);
+  border-color: #cfd2d7;
+  border-left-color: var(--cpcc-gray);
+}
+
+.doc .admonitionblock.warning td.icon i.icon-warning {
+  --cpcc-admonition-icon: var(--cpcc-icon-warning);
   background-color: var(--cpcc-dark-gold);
   color: #ffffff;
 }
 
-.doc .admonitionblock td.icon i.icon-caution {
+.doc .admonitionblock.warning td.content {
+  background: linear-gradient(180deg, #fdf8f3 0%, #fcf0e6 100%);
+  border-color: #e3c1a6;
+  border-left-color: var(--cpcc-dark-gold);
+}
+
+.doc .admonitionblock.caution td.icon i.icon-caution {
+  --cpcc-admonition-icon: var(--cpcc-icon-caution);
   background-color: var(--cpcc-teal-dark);
   color: #ffffff;
+}
+
+.doc .admonitionblock.caution td.content {
+  background: linear-gradient(180deg, #f5f9fb 0%, #edf5f9 100%);
+  border-color: #c4d7e1;
+  border-left-color: var(--cpcc-teal-dark);
 }
 
 .doc .sidebarblock {
