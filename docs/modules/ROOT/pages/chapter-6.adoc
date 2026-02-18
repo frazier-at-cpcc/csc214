@@ -18,12 +18,13 @@ By the end of this chapter, you will be able to:
 
 
 [[sec-6-1]]
-== 6.1 Overview of Computer Vision
+== Overview of Computer Vision
 
 Computer vision is a branch of artificial intelligence that enables machines to interpret and act on visual information such as photographs, video frames, and scanned documents. Rather than simply storing an image as a file, computer vision systems analyze the content of that image — identifying objects, reading text, recognizing faces, or generating descriptive captions.
 
 This domain accounts for approximately *15–20%* of the AI-900 exam content, making it one of the five major pillars you need to understand. The questions in this domain test your ability to identify the right Azure service for a given scenario, understand how images are processed at the pixel level, and recognize the ethical considerations that accompany visual AI.
 
+[.definition]
 .Definition: Computer Vision
 ****
 A field of artificial intelligence focused on enabling computers to derive meaningful information from visual inputs such as images and videos. Applications range from automated quality inspection in manufacturing to assistive technology for people with visual impairments.
@@ -32,11 +33,11 @@ A field of artificial intelligence focused on enabling computers to derive meani
 
 
 [[sec-6-2]]
-== 6.2 Azure Computer Vision Services
+== Azure Computer Vision Services
 
 Microsoft Azure offers several services for computer vision tasks. Each service addresses different needs, and understanding which service fits a given scenario is essential for the AI-900 exam.
 
-=== 6.2.1 Service Comparison
+=== Service Comparison
 
 .Figure 6.5: Azure Computer Vision Services Map
 image::ch6/visual_6_5_cv_services_map.png[Service ecosystem diagram showing Azure Computer Vision branches to AI Vision; Custom Vision; AI Face; and Video Indexer,width=85%]
@@ -52,13 +53,13 @@ image::ch6/visual_6_5_cv_services_map.png[Service ecosystem diagram showing Azur
 |*Azure AI Video Indexer* |Extract insights from video content using more than 30 AI models |You need to analyze video for transcription, object tracking, content moderation, or scene detection
 |===
 
-=== 6.2.2 Azure AI Vision
+=== Azure AI Vision
 
 Azure AI Vision is the primary service for general computer vision tasks. It provides pre-built models that can analyze images and return structured results without requiring you to train your own model. Capabilities include generating image captions, applying descriptive tags, detecting objects with bounding boxes, and extracting text through OCR.
 
 Results from Azure AI Vision are returned as JSON, which includes the analysis output along with metadata such as image dimensions and a confidence score. The confidence score is a decimal value between 0 and 1 that indicates how certain the model is about its prediction.
 
-=== 6.2.3 Azure AI Custom Vision
+=== Azure AI Custom Vision
 
 When pre-built models do not meet your needs, Azure AI Custom Vision allows you to create tailored image recognition models. You upload your own images, label them with tags that represent your categories, and train a model that learns to recognize those specific categories. For example, an agricultural technology company might train a model to distinguish between healthy crops and crops affected by disease.
 
@@ -69,16 +70,17 @@ Custom Vision supports two project types:
 
 You can interact with Custom Vision through its web portal, REST API, or client SDKs.
 
-=== 6.2.4 Azure AI Face
+=== Azure AI Face
 
 The Azure AI Face service provides algorithms for detecting, recognizing, and analyzing human faces. It can locate faces within an image, identify facial landmarks (such as the positions of the eyes, nose, and mouth), and match detected faces against a known set of identities.
 
 Due to the sensitive nature of facial recognition technology, Microsoft restricts access to certain features of this service. Only approved customers and partners who meet specific eligibility criteria and responsible use requirements can use identity recognition capabilities. This restriction reflects Microsoft's commitment to responsible AI practices.
 
-=== 6.2.5 Azure AI Video Indexer
+=== Azure AI Video Indexer
 
 Video Indexer goes beyond still images by analyzing video content. It leverages a suite of AI models to extract information such as spoken words (transcription), on-screen text (OCR), visible objects, faces, scene changes, and even emotional tone in audio. This service is useful for media companies, educational institutions, and any organization that manages large volumes of video content.
 
+[.reflection]
 .Reflection
 ****
 Consider an industry you are familiar with — retail, healthcare, education, or manufacturing. Which of the Azure computer vision services described above would be most useful in that industry, and what specific problem would it solve?
@@ -87,7 +89,7 @@ Consider an industry you are familiar with — retail, healthcare, education, or
 
 
 [[sec-6-3]]
-== 6.3 Computer Vision Capabilities
+== Computer Vision Capabilities
 
 Azure AI Vision provides several distinct capabilities, each suited to different analytical tasks. The table below summarizes these capabilities and their common applications.
 
@@ -102,6 +104,7 @@ Azure AI Vision provides several distinct capabilities, each suited to different
 |*OCR* |Extracts printed or handwritten text from images and converts it to machine-readable characters |Digitizing paper records; scanning receipts; reading text from street signs
 |===
 
+[.definition]
 .Definition: Confidence Score
 ****
 A numerical value, typically between 0 and 1, that represents how certain an AI model is about a particular prediction. A score of 0.95 indicates high confidence, while a score of 0.40 indicates substantial uncertainty.
@@ -116,7 +119,7 @@ For the AI-900 exam, be prepared to match each capability to the correct scenari
 
 
 [[sec-6-4]]
-== 6.4 How Computer Vision Works: Pixels and Image Representation
+== How Computer Vision Works: Pixels and Image Representation
 
 .Figure 6.3: Pixel Grid and RGB Channel Decomposition
 image::ch6/visual_6_3_pixel_rgb.png[Image decomposed into pixel grid with separate red; green; and blue channel views,width=85%]
@@ -124,21 +127,22 @@ image::ch6/visual_6_3_pixel_rgb.png[Image decomposed into pixel grid with separa
 
 To understand computer vision, you need to understand how computers represent images.
 
-=== 6.4.1 Pixels as the Building Blocks
+=== Pixels as the Building Blocks
 
 A digital image is a grid of tiny squares called *pixels* (short for "`picture elements`"). Each pixel stores color information as numerical values. The total number of pixels in an image defines its *resolution*. For example, an image that is 1920 pixels wide and 1080 pixels tall contains over two million pixels.
 
+[.definition]
 .Definition: Pixel
 ****
 The smallest unit of a digital image, represented by numerical values that encode brightness and color information. Each pixel corresponds to a single point in the image grid.
 ****
 
 
-=== 6.4.2 Grayscale Images
+=== Grayscale Images
 
 In a grayscale image, each pixel holds a single numerical value between 0 and 255. A value of 0 represents pure black, 255 represents pure white, and intermediate values represent shades of gray. The entire image can be thought of as a two-dimensional array of numbers — rows and columns of intensity values.
 
-=== 6.4.3 Color Images and RGB Channels
+=== Color Images and RGB Channels
 
 Color images use three separate layers, called *channels*, to represent color. Each channel corresponds to one of the three primary colors of light:
 
@@ -150,33 +154,35 @@ Each pixel in a color image is therefore described by three values. For example,
 
 Think of RGB values like mixing light. When red and blue light are mixed in equal amounts with no green, they produce purple. Your screen works this way with every pixel — combining different intensities of red, green, and blue light to create the full spectrum of visible colors.
 
+[.definition]
 .Definition: RGB Color Model
 ****
 A color model in which red, green, and blue light are combined in varying intensities (each ranging from 0 to 255) to produce a wide array of colors. Most digital displays and computer vision systems use RGB as their primary color representation.
 ****
 
 
-=== 6.4.4 From Pixels to Patterns
+=== From Pixels to Patterns
 
 Computer vision algorithms do not "`see`" an image the way humans do. Instead, they analyze the numerical values in the pixel grid to identify mathematical patterns — gradients where values change sharply (edges), regions of similar values (textures), and spatial relationships between features. These patterns become the raw material that machine learning models use to make predictions about what an image contains.
 
 
 [[sec-6-5]]
-== 6.5 Image Filters and Convolutional Filtering
+== Image Filters and Convolutional Filtering
 
-=== 6.5.1 What Is a Filter?
+=== What Is a Filter?
 
 An image filter is a mathematical operation that transforms an image by modifying pixel values in a systematic way. Filters are defined by small grids of numbers called *kernels* (also known as filter matrices). The kernel is applied to the image by sliding it across every position in the pixel grid, performing a calculation at each location, and writing the result to a new output image.
 
 This process of sliding a kernel across an image is called *convolution*, and it forms the foundation of both traditional image processing and modern deep learning for vision.
 
+[.definition]
 .Definition: Convolution
 ****
 A mathematical operation that slides a kernel across an image, computing weighted sums of pixel neighborhoods to produce a transformed output. Convolution is the core operation in both traditional image filtering and convolutional neural networks.
 ****
 
 
-=== 6.5.2 How Convolution Works
+=== How Convolution Works
 
 .Figure 6.2: Convolution Operation Step-by-Step
 image::ch6/visual_6_2_convolution_operation.png[Multi-panel illustration showing kernel sliding over pixel grid with element-wise multiplication,width=85%]
@@ -192,13 +198,14 @@ The convolution operation follows these steps:
 
 The result is a new image — sometimes called a *feature map* — where each pixel reflects the combined influence of its neighbors as weighted by the kernel.
 
+[.definition]
 .Definition: Feature Map
 ****
 The output produced by applying a convolutional filter to an image, highlighting specific patterns such as edges or textures. Each feature map represents the presence and location of a particular visual pattern detected by the kernel.
 ****
 
 
-=== 6.5.3 Common Filter Types
+=== Common Filter Types
 
 .Figure 6.7: Common Image Filter Types
 image::ch6/visual_6_7_filter_types.png[Before/after panels showing blurring; sharpening; edge detection; and color inversion filters,width=85%]
@@ -213,6 +220,7 @@ image::ch6/visual_6_7_filter_types.png[Before/after panels showing blurring; sha
 |*Color Inversion* |Subtracts each pixel value from the maximum intensity, producing a negative |Creating visual effects; enhancing contrast for certain analyses
 |===
 
+[.definition]
 .Definition: Kernel (Filter Matrix)
 ****
 A small grid of numerical values used in convolution. The kernel determines what effect the filter has on the image. Different kernels produce different transformations, such as blurring, sharpening, or edge detection.
@@ -227,6 +235,7 @@ You do not need to memorize kernel values for the AI-900 exam. Focus on understa
 
 *Real-World Connection:* Edge detection filters are used in self-driving car systems to identify road boundaries, lane markings, and obstacles. Sharpening filters help medical imaging systems enhance the detail in X-rays and MRI scans for more accurate diagnosis.
 
+[.reflection]
 .Reflection
 ****
 Before moving on, can you describe in your own words what a kernel does and what a feature map represents? Why do you think different kernels produce different visual effects when applied to the same image?
@@ -235,24 +244,24 @@ Before moving on, can you describe in your own words what a kernel does and what
 
 
 [[sec-6-6]]
-== 6.6 Image Classification
+== Image Classification
 
 *Image classification* is the task of assigning a label or category to an entire image based on its visual content. For example, a classification model might determine whether a photograph shows a cat, a dog, or a bird.
 
-=== 6.6.1 How Classification Works
+=== How Classification Works
 
 Image classification typically relies on *supervised learning* (a training approach in which the model learns from labeled examples — introduced in xref:chapter-4.adoc#ch-4[Chapter 4]: Fundamental Principles of Machine Learning). During training, the model is presented with a large dataset of images, each paired with its correct label. The model learns to associate visual patterns — shapes, colors, textures — with specific categories. After training, the model can predict the label for new images it has never seen before.
 
 Unsupervised learning, which works with unlabeled data, is covered in xref:chapter-4.adoc#ch-4[Chapter 4].
 
-=== 6.6.2 Practical Applications
+=== Practical Applications
 
 * *Healthcare:* Analyzing medical images (X-rays, MRIs) to detect abnormalities such as tumors or fractures
 * *Agriculture:* Identifying crop diseases from aerial or field photographs
 * *Manufacturing:* Inspecting products on an assembly line for defects
 * *Wildlife conservation:* Classifying animal species from camera trap images
 
-=== 6.6.3 Classification in Azure
+=== Classification in Azure
 
 Azure AI Custom Vision is the primary service for building custom image classification models. You upload labeled training images, train the model, and then deploy it to classify new images via a REST API. Azure AI Vision also provides pre-built classification capabilities that work without custom training for common scenarios.
 
@@ -264,11 +273,11 @@ Think of a situation in your daily life or work where automatically sorting imag
 
 
 [[sec-6-7]]
-== 6.7 Object Detection
+== Object Detection
 
 While image classification answers the question "`What is in this image?`", *object detection* goes further by also answering "`Where is it?`"
 
-=== 6.7.1 Bounding Boxes
+=== Bounding Boxes
 
 .Figure 6.8: Bounding Box Anatomy
 image::ch6/visual_6_8_bounding_box.png[Annotated image showing bounding boxes with object labels; confidence scores; and pixel coordinates,width=85%]
@@ -276,6 +285,7 @@ image::ch6/visual_6_8_bounding_box.png[Annotated image showing bounding boxes wi
 
 Object detection models identify objects within an image and draw *bounding boxes* around each one. A bounding box is a rectangle defined by pixel coordinates that frames the detected object.
 
+[.definition]
 .Definition: Bounding Box
 ****
 A rectangular outline defined by pixel coordinates that frames a detected object within an image. Bounding boxes indicate both the location and spatial extent of each object identified by a detection model.
@@ -288,7 +298,7 @@ Along with each bounding box, the model returns:
 * A *confidence score* (how certain the model is)
 * The *coordinates* of the box (where the object is located)
 
-=== 6.7.2 How Object Detection Differs from Classification
+=== How Object Detection Differs from Classification
 
 .Figure 6.4: Computer Vision Task Comparison
 image::ch6/visual_6_4_cv_task_comparison.png[Same image shown four ways: classification; object detection with bounding boxes; semantic segmentation; and OCR,width=85%]
@@ -303,7 +313,7 @@ image::ch6/visual_6_4_cv_task_comparison.png[Same image shown four ways: classif
 |*Training complexity* |Requires labeled images |Requires labeled images _plus_ bounding box annotations
 |===
 
-=== 6.7.3 Use Cases
+=== Use Cases
 
 * *Retail:* Monitoring shelf inventory by detecting products and their positions
 * *Transportation:* Counting vehicles and detecting traffic violations
@@ -314,11 +324,11 @@ Object detection in Azure is available through both Azure AI Vision (pre-built m
 
 
 [[sec-6-8]]
-== 6.8 Optical Character Recognition (OCR)
+== Optical Character Recognition (OCR)
 
 *Optical Character Recognition (OCR)* is the process of extracting text from images and converting it into machine-readable characters. This enables computers to "`read`" printed or handwritten text that appears in photographs, scanned documents, signs, labels, and other visual media.
 
-=== 6.8.1 Traditional OCR vs. AI-Powered OCR
+=== Traditional OCR vs. AI-Powered OCR
 
 Traditional OCR systems relied on pattern matching — comparing the shapes of characters in an image against a library of known character templates. Modern AI-powered OCR uses machine learning models that analyze the shapes, strokes, and context of characters. This approach handles challenging scenarios far better, including:
 
@@ -327,7 +337,7 @@ Traditional OCR systems relied on pattern matching — comparing the shapes of c
 * Skewed, rotated, or partially obscured text
 * Low-quality or noisy images
 
-=== 6.8.2 OCR in Azure
+=== OCR in Azure
 
 Azure provides OCR capabilities through its *Read API*, which is part of Azure AI Vision. The Read API supports:
 
@@ -337,7 +347,7 @@ Azure provides OCR capabilities through its *Read API*, which is part of Azure A
 
 Azure also offers *Document Intelligence* (formerly Form Recognizer), which builds on OCR technology to go beyond raw text extraction. Document Intelligence understands the _structure_ of documents — it can identify fields, tables, key-value pairs, and specific document types such as invoices, receipts, and identity documents.
 
-=== 6.8.3 OCR Output Structure
+=== OCR Output Structure
 
 .Figure 6.10: OCR Output Structure
 image::ch6/visual_6_10_ocr_output.png[Document image with overlaid bounding polygons and adjacent simplified JSON output,width=85%]
@@ -350,12 +360,14 @@ When you submit an image to Azure's Read API, the response includes:
 * *Bounding polygon coordinates* showing where each line and word appears in the image
 * *Confidence scores* for each detected word
 
+[.definition]
 .Definition: OCR (Optical Character Recognition)
 ****
 A technology that identifies and extracts text from images, converting visual representations of characters into machine-readable digital text. Modern OCR systems use machine learning to handle diverse fonts, handwriting, and challenging image conditions.
 ****
 
 
+[.definition]
 .Definition: Document Intelligence
 ****
 An Azure AI service that extends OCR by understanding document structure. It can extract fields, tables, and key-value pairs from forms, invoices, receipts, and other structured documents.
@@ -364,11 +376,11 @@ An Azure AI service that extends OCR by understanding document structure. It can
 
 
 [[sec-6-9]]
-== 6.9 Facial Detection and Analysis
+== Facial Detection and Analysis
 
 Facial detection and facial analysis are related but distinct capabilities within computer vision.
 
-=== 6.9.1 Facial Detection vs. Face Recognition
+=== Facial Detection vs. Face Recognition
 
 .Figure 6.6: Facial Detection vs. Analysis vs. Recognition
 image::ch6/visual_6_6_face_detection_analysis_recognition.png[Three-stage progression from facial detection to analysis to identity recognition,width=85%]
@@ -386,18 +398,18 @@ The following table compares facial detection, facial analysis, and face recogni
 
 Facial detection is the foundational step. It finds faces in an image and returns bounding box coordinates. Facial analysis adds attribute information. Face recognition goes the furthest by linking a detected face to a specific identity.
 
-=== 6.9.2 Underlying Technology
+=== Underlying Technology
 
 These capabilities rely on deep learning models, particularly convolutional neural networks (covered in detail in <<sec-6-10,Section 6.10>>), trained on large and diverse datasets of human faces. The models learn to identify facial landmarks — specific points on the face such as the corners of the eyes, the tip of the nose, and the edges of the mouth. These landmarks are returned as coordinate data in the JSON response.
 
-=== 6.9.3 Applications
+=== Applications
 
 * *Security and access control:* Unlocking devices or granting building access based on facial verification
 * *Retail analytics:* Counting foot traffic or estimating demographic patterns (where permitted and ethical)
 * *Healthcare:* Exploring facial analysis as a potential tool for assessing certain conditions
 * *Media and entertainment:* Automatically tagging people in photo collections or applying visual effects in video
 
-=== 6.9.4 Access Restrictions
+=== Access Restrictions
 
 Because facial recognition technology carries significant ethical and privacy risks, Microsoft requires customers to apply for access to the identification and verification features of the Azure AI Face service. Approval is granted based on documented use cases that align with Microsoft's responsible AI standards.
 
@@ -409,11 +421,11 @@ Remember the distinction between facial _detection_ (finding a face) and face _r
 
 
 [[sec-6-10]]
-== 6.10 Convolutional Neural Networks (CNNs)
+== Convolutional Neural Networks (CNNs)
 
 Convolutional neural networks are the deep learning architecture most closely associated with computer vision. CNNs are specifically designed to process grid-structured data such as images.
 
-=== 6.10.1 CNN Architecture
+=== CNN Architecture
 
 .Figure 6.1: CNN Architecture Pipeline
 image::ch6/visual_6_1_cnn_architecture.png[Left-to-right pipeline from input image through convolutional; pooling; and fully connected layers to output,width=85%]
@@ -432,7 +444,7 @@ A CNN consists of several types of layers, each performing a specific role in th
 
 Data flows through these layers sequentially: an image enters as a pixel grid, convolutional layers produce feature maps highlighting detected patterns, pooling layers compress those maps to reduce complexity, fully connected layers combine all extracted features, an activation function produces probability scores, and the highest score becomes the predicted label.
 
-=== 6.10.2 How a CNN Learns
+=== How a CNN Learns
 
 [arabic]
 . *Initial state:* The network begins with random filter weights
@@ -447,19 +459,21 @@ Without looking back, can you name the four types of layers in a CNN and describ
 ====
 
 
+[.definition]
 .Definition: Convolutional Neural Network (CNN)
 ****
 A type of deep learning model designed for processing grid-structured data, especially images. CNNs use convolutional layers to automatically learn spatial features, pooling layers to reduce dimensionality, and fully connected layers to make predictions.
 ****
 
 
+[.definition]
 .Definition: Backpropagation
 ****
 The process by which a neural network adjusts its internal weights after making an incorrect prediction. The error is calculated at the output and propagated backward through the network layers, allowing each weight to be updated to improve future predictions.
 ****
 
 
-=== 6.10.3 Beyond Classification
+=== Beyond Classification
 
 While CNNs are most commonly associated with image classification, they serve as the backbone for many other vision tasks:
 
@@ -471,17 +485,17 @@ While CNNs are most commonly associated with image classification, they serve as
 
 
 [[sec-6-11]]
-== 6.11 From CNNs to Multimodal Models
+== From CNNs to Multimodal Models
 
 .Figure 6.9: Multimodal Model Architecture
 image::ch6/visual_6_9_multimodal_architecture.png[Dual-input flow diagram showing image and text streams converging in shared embedding space,width=85%]
 
 
-=== 6.11.1 The Rise of Transformers
+=== The Rise of Transformers
 
 In recent years, a neural network architecture called the *transformer* has reshaped the field of AI. Originally developed for natural language processing (NLP) (explored further in xref:chapter-7.adoc#ch-7[Chapter 7]: NLP Workloads on Azure), transformers process input data by converting it into numerical representations called *embeddings*. These embeddings capture the meaning and relationships within the data, positioning similar concepts close together in a mathematical space.
 
-=== 6.11.2 Multimodal Models
+=== Multimodal Models
 
 The success of transformers with text led researchers to apply similar principles to images, and eventually to build *multimodal models* that can process both images and text simultaneously. These models work by:
 
@@ -492,7 +506,7 @@ The success of transformers with text led researchers to apply similar principle
 
 This allows a single model to perform tasks that span both visual and linguistic understanding.
 
-=== 6.11.3 Capabilities of Multimodal Models
+=== Capabilities of Multimodal Models
 
 [width="100%",cols="50%,50%",options="header",]
 |===
@@ -506,18 +520,21 @@ This allows a single model to perform tasks that span both visual and linguistic
 
 Microsoft's *Florence* foundation model is an example of a multimodal model trained on millions of image-caption pairs. It serves as the backbone for several capabilities within Azure AI Vision.
 
+[.definition]
 .Definition: Multimodal Model
 ****
 An AI model capable of processing and relating multiple types of input data, such as images and text, within a single framework. Multimodal models can generate text from images, answer questions about visual content, and perform tasks that require understanding both modalities.
 ****
 
 
+[.definition]
 .Definition: Transformer
 ****
 A neural network architecture that processes input data using a mechanism called self-attention, enabling it to capture long-range relationships. Originally developed for NLP, transformers now underpin many state-of-the-art vision and multimodal models.
 ****
 
 
+[.reflection]
 .Reflection
 ****
 Multimodal models combine vision and language understanding. Think of a scenario in education, customer service, or content creation where a system that can both "`see`" and "`read`" would provide value that neither capability alone could deliver.
@@ -526,11 +543,11 @@ Multimodal models combine vision and language understanding. Think of a scenario
 
 
 [[sec-6-12]]
-== 6.12 Responsible AI and Computer Vision
+== Responsible AI and Computer Vision
 
 Computer vision raises specific ethical considerations that go beyond general responsible AI principles. The ability to analyze images of people, track objects in video, and extract text from documents carries risks that must be actively managed.
 
-=== 6.12.1 Fairness
+=== Fairness
 
 Research has demonstrated that facial recognition systems can exhibit bias, particularly against individuals with darker skin tones and women. These biases typically originate from training datasets that underrepresent certain demographic groups. Mitigating bias requires:
 
@@ -540,7 +557,7 @@ Research has demonstrated that facial recognition systems can exhibit bias, part
 
 Microsoft has responded to these concerns by restricting access to facial recognition features, restricting access to capabilities that inferred sensitive attributes such as emotional state and gender, and applying additional scrutiny to age estimation features.
 
-=== 6.12.2 Privacy and Security
+=== Privacy and Security
 
 Computer vision systems that process images of people raise significant privacy concerns:
 
@@ -550,7 +567,7 @@ Computer vision systems that process images of people raise significant privacy 
 
 Organizations deploying computer vision should obtain informed consent, apply strong encryption to stored visual data, comply with data protection regulations (such as the GDPR), and provide clear opt-out mechanisms.
 
-=== 6.12.3 Transparency
+=== Transparency
 
 Users and affected individuals should understand how computer vision systems work, what data they collect, and how decisions are made. Transparency practices include:
 
@@ -558,6 +575,7 @@ Users and affected individuals should understand how computer vision systems wor
 * Providing explanations of how the system reaches its conclusions (explainable AI)
 * Communicating openly with stakeholders about the system's capabilities and limitations
 
+[.definition]
 .Definition: Responsible AI
 ****
 A framework of principles — including fairness, reliability, safety, privacy, inclusiveness, transparency, and accountability — that guides the ethical development and deployment of AI systems. In computer vision, responsible AI is especially critical due to the technology's ability to process images of people and sensitive documents.

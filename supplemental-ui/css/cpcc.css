@@ -16,6 +16,8 @@
   --cpcc-teal: #005d83;
   --cpcc-teal-dark: #004a69;
   --cpcc-dark-gold: #d65f00;
+  --cpcc-icon-reflection: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23005D83' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 5h16v10H9l-5 4V5z'/%3E%3Cpath d='M9 9h6'/%3E%3Cpath d='M9 12h4'/%3E%3C/svg%3E");
+  --cpcc-icon-definition: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B4A269' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6a2.5 2.5 0 0 1 2.5-2.5H21v15H5.5A2.5 2.5 0 0 0 3 21V6z'/%3E%3Cpath d='M7 3.5V18.5'/%3E%3Cpath d='M10 8h7'/%3E%3Cpath d='M10 12h7'/%3E%3C/svg%3E");
 }
 
 body {
@@ -143,6 +145,9 @@ summary:focus-visible {
 .nav-panel-menu .nav-link,
 .nav-panel-menu .nav-text {
   color: var(--cpcc-gray);
+  display: block;
+  line-height: 1.25;
+  padding: 0.12rem 0;
 }
 
 .nav-panel-menu .nav-link:hover,
@@ -150,13 +155,18 @@ summary:focus-visible {
   color: var(--cpcc-teal);
 }
 
-.nav-item.is-current-page > .nav-link,
-.nav-item.is-current-page > .nav-text {
+.nav-item.is-current-page > .nav-link {
   background: rgba(180, 162, 105, 0.18);
   border-left: 3px solid var(--cpcc-gold);
   color: var(--cpcc-gray-ink);
+  font-weight: 600;
   margin-left: -0.75rem;
-  padding-left: calc(0.75rem - 3px + 0.75rem);
+  padding: 0.18rem 0.35rem 0.18rem calc(0.75rem - 3px + 0.75rem);
+}
+
+.nav-item.is-current-page > .nav-text {
+  color: var(--cpcc-gray-ink);
+  font-weight: 600;
 }
 
 .nav-panel-explore .context {
@@ -346,6 +356,105 @@ aside.toc.sidebar,
   font-size: 1.12rem;
   font-weight: 600;
   text-align: left;
+}
+
+.doc .sidebarblock.definition,
+.doc .sidebarblock.reflection {
+  overflow: hidden;
+  position: relative;
+}
+
+.doc .sidebarblock.reflection {
+  background: linear-gradient(180deg, #f8fbfd 0%, #f2f7fa 100%);
+  border: 1px solid #c9dbe3;
+  border-left: 5px solid var(--cpcc-teal);
+}
+
+.doc .sidebarblock.reflection > .content > .title {
+  align-items: center;
+  color: var(--cpcc-teal-dark);
+  display: flex;
+  font-family: "Franklin Gothic URW", "Franklin Gothic", Arial, Roboto, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.55rem;
+  text-transform: uppercase;
+}
+
+.doc .sidebarblock.reflection > .content > .title::before {
+  background-image: var(--cpcc-icon-reflection);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1.05rem 1.05rem;
+  content: "";
+  display: inline-block;
+  height: 1.15rem;
+  margin-right: 0.42rem;
+  width: 1.15rem;
+}
+
+.doc .sidebarblock.reflection > .content > .paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.doc .sidebarblock.definition {
+  background: linear-gradient(180deg, #ffffff 0%, #fcfbf8 100%);
+  border: 1px solid #d9d2c2;
+  border-left: 6px solid var(--cpcc-gold);
+  box-shadow: inset 0 3px 0 rgba(180, 162, 105, 0.2);
+}
+
+.doc .sidebarblock.definition > .content > .title {
+  color: var(--cpcc-gray);
+  font-family: "ITC New Baskerville", Baskerville, "Times New Roman", serif;
+  font-size: 1.08rem;
+  margin-bottom: 0.55rem;
+  min-height: 1.75rem;
+  padding-left: 2rem;
+  position: relative;
+}
+
+.doc .sidebarblock.definition > .content > .title::before {
+  background-image: var(--cpcc-icon-definition);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1.25rem 1.25rem;
+  content: "";
+  height: 1.25rem;
+  left: 0.2rem;
+  position: absolute;
+  top: 0.1rem;
+  width: 1.25rem;
+}
+
+.doc .sidebarblock.definition > .content > .title .cpcc-def-label {
+  color: var(--cpcc-teal);
+  display: block;
+  font-family: "Franklin Gothic URW", "Franklin Gothic", Arial, Roboto, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.08rem;
+  text-transform: uppercase;
+}
+
+.doc .sidebarblock.definition > .content > .title .cpcc-def-term {
+  color: var(--cpcc-gray);
+  display: block;
+  font-family: "ITC New Baskerville", Baskerville, "Times New Roman", serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.doc .sidebarblock.definition > .content > .paragraph {
+  margin-top: 0.25rem;
+}
+
+.doc .sidebarblock.definition > .content > .paragraph:last-child {
+  margin-bottom: 0;
 }
 
 .doc .quoteblock,

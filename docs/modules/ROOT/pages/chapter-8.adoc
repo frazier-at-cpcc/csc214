@@ -18,7 +18,7 @@ By the end of this chapter, you will be able to:
 
 
 [[sec-8-1]]
-== 8.1 What Is Generative AI?
+== What Is Generative AI?
 
 Generative AI refers to a category of artificial intelligence systems that can create new content rather than simply analyzing or classifying existing data. While traditional AI models might sort emails into spam and non-spam categories, a generative model can draft an entirely new email from scratch. The outputs of generative AI span multiple modalities — text, images, audio, video, and code — making it one of the most versatile developments in modern computing.
 
@@ -40,12 +40,14 @@ image::ch8/visual_8_12_genai_content_types.png[Five cards showing text; image; c
 |*Conversational dialogue* |Realistic multi-turn conversations |A virtual assistant answering customer support questions
 |===
 
+[.definition]
 .Definition: Generative AI
 ****
 A category of artificial intelligence in which models produce new content — such as text, images, or code — by predicting outputs based on patterns learned during training on large datasets.
 ****
 
 
+[.definition]
 .Definition: Prompt
 ****
 An input provided by a user to a generative AI system. Prompts can be natural language questions, instructions, or descriptions that guide the model toward producing a desired output.
@@ -54,7 +56,7 @@ An input provided by a user to a generative AI system. Prompts can be natural la
 
 
 [[sec-8-2]]
-== 8.2 The Transformer Architecture
+== The Transformer Architecture
 
 .Figure 8.1: Transformer Pipeline Flow
 image::ch8/visual_8_1_transformer_pipeline.png[Five-stage pipeline from raw text through tokenization; embeddings; attention layers; to decoder output,width=85%]
@@ -64,7 +66,7 @@ _(If you need a refresher on neural networks and deep learning, review xref:chap
 
 The models that power modern generative AI are built on an architecture called the *transformer*, introduced in a landmark 2017 research paper. Before transformers, language models processed words one at a time in sequence, which made them slow and limited their ability to understand long-range relationships between words. Transformers changed this by processing all words in a sequence simultaneously through a mechanism called attention.
 
-=== 8.2.1 Encoder and Decoder Blocks
+=== Encoder and Decoder Blocks
 
 .Figure 8.6: Encoder/Decoder Architecture Variants
 image::ch8/visual_8_6_encoder_decoder.png[Three block diagrams showing encoder-only; decoder-only; and encoder-decoder transformer architectures,width=85%]
@@ -81,13 +83,14 @@ A transformer consists of two primary components:
 
 Not every transformer model uses both components. Some models are encoder-only (such as BERT, which is optimized for understanding text), while others are decoder-only (such as the GPT family, which is optimized for generating text). Models that use both components are sometimes called sequence-to-sequence models and are commonly used for tasks like translation.
 
+[.definition]
 .Definition: Transformer Architecture
 ****
 A neural network architecture that processes input data in parallel using attention mechanisms, enabling it to capture relationships between all elements in a sequence simultaneously. It is the foundation of most modern generative AI models.
 ****
 
 
-=== 8.2.2 Tokenization
+=== Tokenization
 
 Before a transformer can process text, the text must be broken into smaller units called *tokens*. A token might be a whole word, part of a word, a punctuation mark, or even a space character. The process of splitting text into tokens is called tokenization.
 
@@ -99,13 +102,14 @@ Different models use different tokenization strategies. For example, a model mig
 * Token count affects cost and performance. Many API-based AI services charge per token, and models have maximum token limits for input and output combined.
 * Rare or specialized words may be split into multiple tokens, which can affect how well the model handles domain-specific vocabulary.
 
+[.reflection]
 .Reflection
 ****
 Consider the sentence "`Artificial intelligence is transforming healthcare.`" How many tokens do you think this sentence contains? (Hint: It is likely more than the number of words.) Try using OpenAI's free Tokenizer tool to check your guess. If you cannot access the Tokenizer tool, try this rule of thumb: most common English words are 1-2 tokens; short words like "`is`" or "`the`" are typically 1 token, while longer or rare words may be 2-4 tokens. Punctuation marks are usually separate tokens. Apply this estimate to your sentence.
 ****
 
 
-=== 8.2.3 Embeddings
+=== Embeddings
 
 .Figure 8.3: Embedding Space Visualization
 image::ch8/visual_8_3_embedding_space.png[2D scatter plot showing word relationships in embedding space with vector arithmetic,width=70%]
@@ -117,13 +121,14 @@ For example, in an embedding space: - "`Doctor`" and "`physician`" would be posi
 
 Embeddings are learned during training. As the model processes billions of sentences, it gradually adjusts these vectors so that the mathematical distances between words reflect their real-world relationships. This is what allows the model to understand that "`bank`" in "`river bank`" and "`bank`" in "`savings bank`" carry different meanings depending on context.
 
+[.definition]
 .Definition: Embedding
 ****
 A numerical vector representation of a token (or word) in a multi-dimensional space where proximity reflects semantic similarity. Embeddings enable AI models to work with meaning rather than just text strings.
 ****
 
 
-=== 8.2.4 Attention and Self-Attention
+=== Attention and Self-Attention
 
 .Figure 8.2: Attention Heatmap Visualization
 image::ch8/visual_8_2_attention_heatmap.png[Heatmap matrix showing attention weights between tokens in a sentence,width=70%]
@@ -137,12 +142,14 @@ Consider the sentence: "`The cat sat on the mat because it was tired.`" When the
 
 *Multihead attention* extends self-attention by running multiple attention operations in parallel, each focusing on different types of relationships. One attention head might focus on syntactic relationships (subject-verb agreement), while another captures semantic relationships (what a pronoun refers to). This parallel processing allows the model to understand the many layers of meaning within a single sentence.
 
+[.definition]
 .Definition: Attention Mechanism
 ****
 A mechanism in transformer models that assigns varying levels of importance (weights) to different tokens in a sequence, allowing the model to focus on the most relevant parts of the input when generating each part of the output.
 ****
 
 
+[.definition]
 .Definition: Multihead Attention
 ****
 An extension of self-attention that runs multiple attention operations in parallel, with each "`head`" capturing different types of relationships between tokens — such as syntactic structure, semantic meaning, or positional proximity.
@@ -159,10 +166,11 @@ For the AI-900 exam, focus on understanding the _purpose_ of tokenization, embed
 
 
 [[sec-8-3]]
-== 8.3 Language Models on Azure
+== Language Models on Azure
 
 Training a language model from scratch requires enormous computational resources, large curated datasets, and significant financial investment — often millions of dollars. For most organizations, it is far more practical to use a pre-trained *foundation model* and, if necessary, fine-tune it with organization-specific data.
 
+[.definition]
 .Definition: Fine-Tuning
 ****
 The process of further training a pre-trained foundation model on domain-specific data to improve its performance for particular tasks, such as generating medical reports or legal summaries.
@@ -171,11 +179,11 @@ The process of further training a pre-trained foundation model on domain-specifi
 
 Microsoft Azure offers access to foundation models through two primary channels:
 
-=== 8.3.1 Azure OpenAI Service
+=== Azure OpenAI Service
 
 Azure OpenAI Service provides access to OpenAI's models — including the GPT family, DALL-E, and embeddings models — running on Azure's secure, enterprise-grade infrastructure. This means organizations get the capabilities of OpenAI's models combined with Azure's compliance certifications, regional availability, networking controls, and identity management through Microsoft Entra ID.
 
-=== 8.3.2 Azure AI Model Catalog
+=== Azure AI Model Catalog
 
 .Figure 8.8: Azure AI Model Catalog Overview
 image::ch8/visual_8_8_model_catalog.png[Grid showing model providers including OpenAI; Meta; Mistral; Hugging Face; Stability AI; and Cohere,width=85%]
@@ -211,12 +219,14 @@ _++*++Partner availability in the Azure AI Model Catalog may change as Microsoft
 
 For example, a healthcare company wants to build a tool that generates discharge summaries from physician notes. They choose GPT-4 via Azure OpenAI Service for its strong summarization capabilities, rather than training their own model from scratch, because their team lacks the compute resources and ML expertise required for custom model development.
 
+[.definition]
 .Definition: Foundation Model
 ****
 A large AI model trained on broad data at scale that can be adapted (fine-tuned) for a wide range of downstream tasks. Foundation models serve as the starting point for building specialized AI applications.
 ****
 
 
+[.reflection]
 .Reflection
 ****
 Why might an organization choose to use a pre-trained foundation model from Azure's Model Catalog rather than training its own model from scratch? Consider cost, time, expertise, and infrastructure in your answer.
@@ -225,7 +235,7 @@ Why might an organization choose to use a pre-trained foundation model from Azur
 
 
 [[sec-8-4]]
-== 8.4 Large Language Models vs. Small Language Models
+== Large Language Models vs. Small Language Models
 
 .Figure 8.5: LLM vs. SLM Comparison
 image::ch8/visual_8_5_llm_vs_slm.png[Side-by-side comparison of large and small language models across parameters; deployment; speed; and cost,width=85%]
@@ -250,12 +260,14 @@ Not all language models are the same size. The AI industry distinguishes between
 
 *When to use an SLM:* You need fast responses, have limited hardware, or operate in environments where data cannot leave the device. Examples include on-device text prediction, embedded IoT assistants, or domain-specific classification tasks.
 
+[.definition]
 .Definition: Large Language Model (LLM)
 ****
 A language model with billions or more parameters, trained on massive datasets, capable of performing a broad range of language tasks with high accuracy.
 ****
 
 
+[.definition]
 .Definition: Small Language Model (SLM)
 ****
 A language model with fewer parameters than an LLM, designed for efficiency, speed, and deployment in resource-constrained environments.
@@ -264,7 +276,7 @@ A language model with fewer parameters than an LLM, designed for efficiency, spe
 
 
 [[sec-8-5]]
-== 8.5 Microsoft Copilot
+== Microsoft Copilot
 
 .Figure 8.7: Microsoft Copilot Family Ecosystem
 image::ch8/visual_8_7_copilot_ecosystem.png[Hub diagram showing Microsoft Copilot connected to M365; Dynamics; GitHub; Azure; Security; and Analytics products,width=85%]
@@ -272,11 +284,11 @@ image::ch8/visual_8_7_copilot_ecosystem.png[Hub diagram showing Microsoft Copilo
 
 Microsoft Copilot is a family of AI-powered assistants integrated into Microsoft products and services. Copilots are built on top of large language models and designed to help users accomplish tasks through natural language conversation. Rather than replacing the user, a copilot works alongside them — suggesting, drafting, summarizing, and automating within the tools people already use.
 
-=== 8.5.1 Web-Based Copilot
+=== Web-Based Copilot
 
 Microsoft offers Copilot as a free, web-based assistant accessible through the Microsoft Copilot website and integrated into the Bing search engine and Microsoft Edge browser. In Edge, Copilot appears as a sidebar that can summarize web pages, answer questions about on-screen content, and generate text in various tones and formats.
 
-=== 8.5.2 Microsoft Copilot for Microsoft 365
+=== Microsoft Copilot for Microsoft 365
 
 This version of Copilot is embedded into the Microsoft 365 productivity suite:
 
@@ -290,7 +302,7 @@ This version of Copilot is embedded into the Microsoft 365 productivity suite:
 |*Teams* |Summarizes meetings in real time; captures action items; answers questions about discussion content
 |===
 
-=== 8.5.3 Microsoft Dynamics 365 Copilot
+=== Microsoft Dynamics 365 Copilot
 
 Copilot extends into Microsoft's business applications platform:
 
@@ -298,7 +310,7 @@ Copilot extends into Microsoft's business applications platform:
 * *Dynamics 365 Supply Chain* — Identifies potential disruptions, assesses impact, and recommends next steps for procurement decisions.
 * *Dynamics 365 Customer Service* — Helps agents resolve issues faster by analyzing tickets, finding similar cases, and suggesting solutions.
 
-=== 8.5.4 Other Microsoft Copilots
+=== Other Microsoft Copilots
 
 [width="100%",cols="50%,50%",options="header",]
 |===
@@ -310,6 +322,7 @@ Copilot extends into Microsoft's business applications platform:
 |*Copilot in Microsoft Fabric* |Generates code for data analysis in Spark Notebooks
 |===
 
+[.definition]
 .Definition: Microsoft Copilot
 ****
 An AI-powered assistant embedded in software applications that uses large language models to help users accomplish tasks through natural language interaction. Microsoft's Copilot family spans productivity tools, developer environments, business applications, and cloud management.
@@ -330,7 +343,7 @@ For the AI-900 exam, focus on understanding that Copilot is a family of AI assis
 
 
 [[sec-8-6]]
-== 8.6 Prompt Engineering
+== Prompt Engineering
 
 .Figure 8.10: Prompt Engineering Best Practices
 image::ch8/visual_8_10_prompt_engineering.png[Six reference cards with best practices for effective prompt engineering,width=85%]
@@ -355,12 +368,14 @@ The quality of a generative AI model's output is heavily influenced by the quali
 
 In many generative AI platforms, a *system message* (sometimes called a metaprompt) sets the overall behavior and personality of the model before the user's conversation begins. For example, a system message might instruct the model: "`You are a helpful customer service agent for a software company. Keep responses concise and professional.`" Every subsequent user prompt is then interpreted within that context.
 
+[.definition]
 .Definition: Prompt Engineering
 ****
 The practice of designing and refining inputs (prompts) to guide generative AI models toward producing higher-quality, more relevant outputs.
 ****
 
 
+[.definition]
 .Definition: System Message
 ****
 A set of instructions provided to an AI model before user interaction begins, establishing the model's behavior, tone, and boundaries for the conversation.
@@ -375,7 +390,7 @@ Think of a task you perform regularly at work or school. Write a prompt you coul
 
 
 [[sec-8-7]]
-== 8.7 Customizing Copilots
+== Customizing Copilots
 
 .Figure 8.11: Copilot Studio vs. Azure AI Foundry
 image::ch8/visual_8_11_copilot_studio_vs_foundry.png[Two-column comparison of Copilot Studio low-code approach and Azure AI Foundry full-code approach,width=85%]
@@ -405,6 +420,7 @@ Organizations often need AI assistants tailored to their specific workflows and 
 |*Use case example* |A financial services firm builds a copilot that provides personalized investment recommendations by fine-tuning a model on proprietary portfolio data
 |===
 
+[.definition]
 .Definition: Fine-Tuning
 ****
 The process of further training a pre-trained model on a smaller, domain-specific dataset to improve its performance on particular tasks or to align its outputs with an organization's terminology and requirements.
@@ -413,7 +429,7 @@ The process of further training a pre-trained model on a smaller, domain-specifi
 
 
 [[sec-8-8]]
-== 8.8 Azure OpenAI Studio
+== Azure OpenAI Studio
 
 [NOTE]
 ====
@@ -457,7 +473,7 @@ To reinforce the distinction between Copilot Studio and Azure AI Foundry, ask yo
 
 
 [[sec-8-9]]
-== 8.9 Responsible Generative AI
+== Responsible Generative AI
 
 _(For Microsoft's six foundational responsible AI principles, see xref:chapter-3.adoc#ch-3[Chapter 3], xref:chapter-3.adoc#sec-3-11[Section 3.11]. This section focuses on responsible AI considerations specific to generative models.)_
 
@@ -480,7 +496,7 @@ Microsoft recommends a four-stage process for building and deploying generative 
 |*4. Operate responsibly* |Deploy and monitor with ongoing vigilance |Verify compliance (legal, privacy, security, accessibility); plan phased rollouts; prepare incident response and rollback plans; collect user feedback; track telemetry
 |===
 
-=== 8.9.1 Stage 1: Identify Potential Harms
+=== Stage 1: Identify Potential Harms
 
 The first stage involves systematically cataloging the ways a generative AI system could produce unwanted or dangerous outputs. This includes:
 
@@ -488,6 +504,7 @@ The first stage involves systematically cataloging the ways a generative AI syst
 * *Factual inaccuracies* — The model may present false information as fact, a phenomenon sometimes called "`hallucination.`"
 * *Harmful or illegal content* — The model may generate instructions for dangerous activities if not properly constrained.
 
+[.definition]
 .Definition: Hallucination
 ****
 A phenomenon in which a generative AI model produces output that sounds plausible but is factually incorrect, fabricated, or unsupported by any source data. Hallucinations are a key risk in generative AI deployments and a primary motivation for grounding and content safety measures.
@@ -496,13 +513,14 @@ A phenomenon in which a generative AI model produces output that sounds plausibl
 
 After identifying these harms, teams should *rank them by likelihood and impact*, conduct *red team testing* (deliberately trying to provoke harmful outputs), and *document all findings* for stakeholders.
 
+[.definition]
 .Definition: Red Teaming
 ****
 A testing methodology borrowed from cybersecurity in which testers deliberately attempt to provoke a system into producing harmful, incorrect, or unintended outputs in order to identify vulnerabilities before deployment.
 ****
 
 
-=== 8.9.2 Stage 2: Measure the Harms
+=== Stage 2: Measure the Harms
 
 Once potential harms are identified, the next step is to measure how frequently they occur and how severe they are. This involves:
 
@@ -513,13 +531,14 @@ Once potential harms are identified, the next step is to measure how frequently 
 
 This measurement establishes a *baseline* — a quantified snapshot of the model's current behavior — against which future improvements can be compared. Initial testing should be done manually on a small set of prompts, then scaled using automated classification as the process matures.
 
+[.definition]
 .Definition: Baseline
 ****
 A measured starting point that captures the current frequency and severity of harmful outputs, used as a reference for tracking improvement after mitigation measures are applied.
 ****
 
 
-=== 8.9.3 Stage 3: Mitigate the Harms
+=== Stage 3: Mitigate the Harms
 
 .Figure 8.4: Responsible AI Mitigation Layers
 image::ch8/visual_8_4_mitigation_layers.png[Four-layer stack from User Experience through Metaprompt; Safety System; to Model layer,width=85%]
@@ -536,13 +555,14 @@ Risk mitigation in generative AI is not a single action but a *layered approach*
 |*User experience layer* |Design the interface to guide safe interaction |Limiting input categories; providing clear documentation about what the AI can and cannot do; displaying confidence indicators
 |===
 
+[.definition]
 .Definition: Retrieval-Augmented Generation (RAG)
 ****
 A technique in which a generative AI model's responses are grounded in documents retrieved from a trusted knowledge base, reducing hallucinations and improving factual accuracy.
 ****
 
 
-=== 8.9.4 Stage 4: Operate Responsibly
+=== Stage 4: Operate Responsibly
 
 Before deploying a generative AI solution, organizations should:
 
@@ -570,6 +590,7 @@ Azure provides built-in tools to support responsible deployment:
 |*Custom Categories* |Define organization-specific content categories to monitor for emerging risks
 |===
 
+[.reflection]
 .Reflection
 ****
 Imagine you are deploying a generative AI chatbot for a university's student advising office. What are two potential harms you would test for, and what mitigation strategies would you apply at each of the four layers?

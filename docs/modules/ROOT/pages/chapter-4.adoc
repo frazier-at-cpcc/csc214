@@ -19,7 +19,7 @@ By the end of this chapter, you will be able to:
 
 
 [[sec-4-1]]
-== 4.1 What Is Machine Learning?
+== What Is Machine Learning?
 
 Machine learning (ML) is a subset of artificial intelligence in which computer systems improve their performance on a task by learning from data rather than following explicitly coded instructions. Instead of a programmer writing rules for every possible situation, an ML system examines large volumes of historical data, identifies patterns within that data, and uses those patterns to make predictions or decisions about new, previously unseen data.
 
@@ -38,6 +38,7 @@ ML enables organizations to automate analysis that would be impractical for huma
 
 The terms "`artificial intelligence`" and "`machine learning`" are frequently used as though they mean the same thing, but they represent different levels of specificity. AI is the broad discipline concerned with building systems that can perform tasks normally requiring human intelligence — everything from voice assistants to autonomous vehicles. ML is one approach within AI that focuses specifically on enabling systems to learn from data. In other words, all ML is AI, but not all AI is ML.
 
+[.definition]
 .Definition: Machine Learning
 ****
 A branch of artificial intelligence in which systems learn patterns from data to make predictions or decisions, without being explicitly programmed for each scenario.
@@ -52,7 +53,7 @@ Think of a repetitive decision-making task in your daily life or work. Could tha
 
 
 [[sec-4-2]]
-== 4.2 The Machine Learning Workflow
+== The Machine Learning Workflow
 
 .Figure 4.1: The Machine Learning Workflow Pipeline
 image::ch4/visual_4_1_ml_workflow.png[Four-stage pipeline: Prepare Data; Train Model; Evaluate and Iterate; Inferencing,width=85%]
@@ -60,7 +61,7 @@ image::ch4/visual_4_1_ml_workflow.png[Four-stage pipeline: Prepare Data; Train M
 
 Every ML project follows a general workflow. Understanding this workflow is essential both for the AI-900 exam and for communicating effectively about ML in professional settings.
 
-=== 4.2.1 Step 1 — Prepare the Data
+=== Step 1 — Prepare the Data
 
 .Figure 4.10: Features vs. Labels in a Dataset
 image::ch4/visual_4_10_features_labels.png[Annotated data table with feature columns highlighted in blue and label column highlighted in green,width=85%]
@@ -79,12 +80,14 @@ Two critical concepts appear in every training dataset:
 
 Features are commonly represented by the variable *x* (often a vector of multiple values), and the label is represented by *y*.
 
+[.definition]
 .Definition: Feature
 ****
 An individual measurable property or characteristic of a data point that serves as an input to a machine learning model.
 ****
 
 
+[.definition]
 .Definition: Label
 ****
 The outcome or target value that a supervised learning model is trained to predict.
@@ -112,7 +115,7 @@ The AI-900 exam does not require you to perform data cleaning yourself, but you 
 ====
 
 
-=== 4.2.2 Step 2 — Train the Model
+=== Step 2 — Train the Model
 
 Training is the process in which an algorithm analyzes the training dataset to discover the relationship between the features (x) and the label (y). The goal is to find a mathematical function that can take a set of feature values as input and produce a predicted label as output:
 
@@ -122,22 +125,24 @@ The specific function depends on the type of algorithm used. A linear regression
 
 <<sec-4-7,Section 4.7>> examines how deep neural networks implement a more complex version of this training process.
 
-=== 4.2.3 Step 3 — Evaluate and Iterate
+=== Step 3 — Evaluate and Iterate
 
 Once trained, the model's predictions are compared against actual outcomes using data the model has not seen before (called the *test dataset*). Evaluation metrics — which vary depending on the type of ML task — quantify how well the model performs.
 
 If performance is not satisfactory, practitioners iterate: they may adjust the algorithm's settings (called *hyperparameters*), select different features, gather more data, or try a different algorithm entirely. This cycle of train-evaluate-adjust is repeated until the model meets acceptable performance standards.
 
-=== 4.2.4 Step 4 — Use Inferencing
+=== Step 4 — Use Inferencing
 
 Once a model is trained and validated, it can be deployed to make predictions on new data. This process is called *inferencing*. The model receives new feature values and outputs a predicted label, often written as *y-hat* (symbolized as y with a circumflex: ŷ) to indicate that the value is an estimate, not a guaranteed outcome.
 
+[.definition]
 .Definition: Inferencing
 ****
 The process of using a trained machine learning model to generate predictions on new, previously unseen data.
 ****
 
 
+[.definition]
 .Definition: Hyperparameter
 ****
 A configuration setting external to the model itself (such as learning rate or number of iterations) that is adjusted by the practitioner to improve model performance.
@@ -146,7 +151,7 @@ A configuration setting external to the model itself (such as learning rate or n
 
 
 [[sec-4-3]]
-== 4.3 Types of Machine Learning
+== Types of Machine Learning
 
 .Figure 4.8: Supervised vs. Unsupervised Learning
 image::ch4/visual_4_8_supervised_unsupervised.png[Two-panel comparison showing supervised learning with labels and unsupervised learning discovering clusters,width=85%]
@@ -163,6 +168,7 @@ At the highest level, ML techniques are divided into two broad categories based 
 
 Understanding this distinction is fundamental. The next sections examine the major techniques within each category.
 
+[.reflection]
 .Reflection
 ****
 Imagine you have a dataset of customer transactions. If each transaction is labeled as "`fraudulent`" or "`legitimate,`" which category of ML would you use? What if no labels existed and you simply wanted to find unusual patterns?
@@ -171,24 +177,25 @@ Imagine you have a dataset of customer transactions. If each transaction is labe
 
 
 [[sec-4-4]]
-== 4.4 Regression Analysis
+== Regression Analysis
 
 Regression analysis is a supervised learning technique used when the label you want to predict is a *continuous numerical value* — a number that can fall anywhere along a range. Examples include predicting temperature, estimating revenue, or forecasting the price of a product.
 
-=== 4.4.1 How Regression Works
+=== How Regression Works
 
 The general process follows the ML workflow described in <<sec-4-2,Section 4.2>>, with some specifics:
 
 [arabic]
 . *Split the data* — Divide the dataset into subsets. A common split reserves a portion for training, a portion for validation (to fine-tune model settings), and a portion for testing (to evaluate final performance).
 
+[.definition]
 .Definition: Train the model
 ****
 A subset of data used during model development to tune hyperparameters and assess model generalization before final evaluation on the test set. It is distinct from both the training set (used to train the model) and the test set (used for final evaluation). 2. *Train the model* — Apply a regression algorithm to the training data. The algorithm identifies the mathematical relationship between the features and the numerical label. 3. *Validate and fine-tune* — Use the validation set to adjust hyperparameters and improve the model's ability to generalize beyond the training data. 4. *Test the model* — Generate predictions on the test set and compare predicted values (ŷ) to actual values (y). 5. *Evaluate and iterate* — Use evaluation metrics to measure accuracy. If performance is insufficient, revisit earlier steps.
 ****
 
 
-=== 4.4.2 Linear Regression: A Core Algorithm
+=== Linear Regression: A Core Algorithm
 
 Linear regression is one of the simplest and most widely used regression algorithms. It fits a straight line (called the *line of best fit*) through the data points in a way that minimizes the overall distance between the line and the actual data points.
 
@@ -196,13 +203,14 @@ For a single feature, the relationship can be visualized as a scatter plot with 
 
 When a model includes multiple features — as in the house price example where square footage, number of bedrooms, and neighborhood are all inputs — the algorithm fits a multi-dimensional surface rather than a single line, though the underlying principle of minimizing prediction error remains the same.
 
+[.definition]
 .Definition: Linear Regression
 ****
 A regression algorithm that models the relationship between features and a numerical label by fitting a straight line through the data.
 ****
 
 
-=== 4.4.3 Data Splitting Strategies
+=== Data Splitting Strategies
 
 .Figure 4.11: Data Splitting Strategies
 image::ch4/visual_4_11_data_splitting.png[Partitioned bar showing training; validation; and test splits with K-fold cross-validation diagram below,width=85%]
@@ -221,7 +229,7 @@ The strategies below range from simple one-time splits to more sophisticated ite
 |*K-fold cross-validation* |Data is divided into _k_ equal subsets; the model is trained _k_ times, each time using a different subset as the test set |You want a more robust estimate of model performance, especially with limited data
 |===
 
-=== 4.4.4 Evaluation Metrics for Regression
+=== Evaluation Metrics for Regression
 
 .Figure 4.9: Regression Evaluation Metrics
 image::ch4/visual_4_9_regression_metrics.png[Scatter plot with regression line showing residuals and annotations for MAE; MSE; RMSE; and R-squared,width=75%]
@@ -244,13 +252,14 @@ You do not need to memorize the mathematical formulas for these metrics on the A
 ====
 
 
+[.reflection]
 .Reflection
 ****
 A model predicting delivery times has an RMSE of 12 minutes. A second model predicting the same thing has an R² of 0.91. Which metric tells you more about whether the model is useful in practice? Why might you want to know both?
 ****
 
 
-=== 4.4.5 The Iterative Nature of Model Development
+=== The Iterative Nature of Model Development
 
 Achieving a good model is rarely a one-step process. Data scientists typically repeat the training cycle multiple times, adjusting three main levers:
 
@@ -260,11 +269,11 @@ Achieving a good model is rarely a one-step process. Data scientists typically r
 
 
 [[sec-4-5]]
-== 4.5 Classification
+== Classification
 
 Classification is a supervised learning technique used when the label is a *discrete category* rather than a continuous number. The model's job is to assign each new data point to one of a set of predefined categories (also called classes).
 
-=== 4.5.1 Binary Classification
+=== Binary Classification
 
 .Figure 4.4: The Sigmoid Function Curve
 image::ch4/visual_4_4_sigmoid_function.png[S-shaped sigmoid curve showing probability threshold at 0.5 for binary classification,width=70%]
@@ -286,19 +295,21 @@ Despite its name, *logistic regression* is a classification algorithm, not a reg
 
 For example, a bank building a loan default prediction model might use logistic regression. The sigmoid curve would show how the probability of default changes as the applicant's credit score changes. Applicants whose predicted probability exceeds the 0.5 threshold would be classified as likely to default.
 
+[.definition]
 .Definition: Logistic Regression
 ****
 A classification algorithm that uses a sigmoid function to model the probability of an observation belonging to one of two classes. Despite the word "`regression`" in its name, it is used for classification tasks.
 ****
 
 
+[.definition]
 .Definition: Sigmoid Function
 ****
 An S-shaped mathematical curve that maps input values to output values between 0 and 1, commonly used to represent probabilities in binary classification.
 ****
 
 
-=== 4.5.2 The Confusion Matrix
+=== The Confusion Matrix
 
 .Figure 4.2: The Confusion Matrix
 image::ch4/visual_4_2_confusion_matrix.png[Color-coded 2x2 matrix showing True Positive; False Negative; False Positive; and True Negative quadrants,width=70%]
@@ -324,6 +335,7 @@ Each cell captures a specific type of outcome:
 |*False Negative (FN)* |The model incorrectly predicted negative when the actual class was positive (also called a Type II error)
 |===
 
+[.definition]
 .Definition: Confusion Matrix
 ****
 A table that summarizes the performance of a classification model by displaying the counts of true positives, true negatives, false positives, and false negatives.
@@ -338,7 +350,7 @@ The confusion matrix is very likely to appear on the AI-900 exam. Commit the fou
 ====
 
 
-=== 4.5.3 Evaluation Metrics for Binary Classification
+=== Evaluation Metrics for Binary Classification
 
 .Figure 4.5: ROC Curve with AUC
 image::ch4/visual_4_5_roc_curve.png[Plot showing ROC curve with shaded AUC area comparing model performance to random guessing,width=70%]
@@ -374,13 +386,14 @@ The *Receiver Operating Characteristic (ROC) curve* is a plot that shows how the
 * *AUC = 0.5* — The model is no better than random guessing
 * *AUC between 0.5 and 1.0* — The higher the value, the better the model distinguishes between classes
 
+[.reflection]
 .Reflection
 ****
 Imagine you are building a model to detect a rare but serious disease. Would you prioritize precision or recall? What are the consequences of false positives versus false negatives in this context?
 ****
 
 
-=== 4.5.4 Multiclass Classification
+=== Multiclass Classification
 
 Multiclass classification extends the concept to scenarios where there are *three or more* possible classes. For example, classifying an image of a flower as a rose, a daisy, or a tulip is a multiclass problem.
 
@@ -401,6 +414,7 @@ For example, a multinomial model evaluating a flower might output: ++[++0.15, 0.
 
 The confusion matrix for a multiclass classifier has one row and one column for each class. Metrics such as accuracy, precision, recall, and F1 score can be calculated individually for each class and then aggregated to produce an overall measure of model performance.
 
+[.definition]
 .Definition: Multiclass Classification
 ****
 A classification task in which the model predicts one of three or more possible categories for each observation.
@@ -409,11 +423,11 @@ A classification task in which the model predicts one of three or more possible 
 
 
 [[sec-4-6]]
-== 4.6 Clustering
+== Clustering
 
 Clustering is an *unsupervised learning* technique. Unlike regression and classification, clustering does not use labeled data. Instead, the algorithm examines the features of each data point and groups similar data points together into *clusters*. The clusters themselves serve as labels that the model discovers on its own.
 
-=== 4.6.1 When to Use Clustering
+=== When to Use Clustering
 
 Clustering is valuable when you do not know in advance what groups exist in your data. Common applications include:
 
@@ -422,7 +436,7 @@ Clustering is valuable when you do not know in advance what groups exist in your
 * *Document organization* — Grouping articles or support tickets by topic
 * *Biological research* — Grouping genes or organisms by shared characteristics
 
-=== 4.6.2 K-Means Clustering
+=== K-Means Clustering
 
 .Figure 4.6: K-Means Clustering Step-by-Step
 image::ch4/visual_4_6_kmeans_clustering.png[Multi-panel sequence showing random centroids; point assignment; centroid movement; and final clusters,width=85%]
@@ -437,19 +451,21 @@ K-means is one of the most widely used clustering algorithms. The process works 
 . *Recalculate centroids* — Move each centroid to the average position of all data points assigned to it.
 . *Repeat* — Continue alternating between assigning data points and recalculating centroids until the assignments stabilize (i.e., no data points change clusters between iterations).
 
+[.definition]
 .Definition: Centroid
 ****
 The center point of a cluster, calculated as the mean of all data points assigned to that cluster in k-means clustering.
 ****
 
 
+[.definition]
 .Definition: K-Means Clustering
 ****
 An unsupervised learning algorithm that partitions data into a specified number (k) of clusters by iteratively assigning data points to the nearest centroid and recalculating centroid positions.
 ****
 
 
-=== 4.6.3 Evaluation Metrics for Clustering
+=== Evaluation Metrics for Clustering
 
 Because there are no known labels to compare against, clustering evaluation focuses on how well-separated and internally cohesive the clusters are:
 
@@ -470,13 +486,13 @@ For the AI-900 exam, remember that clustering is unsupervised (no labels) and th
 
 
 [[sec-4-7]]
-== 4.7 Deep Learning
+== Deep Learning
 
 A hospital wants to automatically flag chest X-rays that show signs of pneumonia. The variation in X-ray images is too complex for a traditional ML model to capture through manually defined features. A deep neural network can learn to identify relevant visual patterns — fluid buildup, shadowing, texture changes — directly from the image data, making it the appropriate choice for this task.
 
 Deep learning (DL) is a specialized form of machine learning that uses *artificial neural networks* with multiple layers to learn complex patterns in data. The "`deep`" in deep learning refers to the depth (number of layers) of these networks. Deep learning models, often called *deep neural networks (DNNs)*, power many of today's most advanced AI capabilities, including image recognition, natural language understanding, and speech synthesis.
 
-=== 4.7.1 How a Neural Network Works
+=== How a Neural Network Works
 
 .Figure 4.7: Neural Network Architecture
 image::ch4/visual_4_7_neural_network.png[Three-layer neural network diagram showing input; hidden; and output layers with connection weights,width=85%]
@@ -492,7 +508,7 @@ A neural network is organized into layers:
 |*Output layer* |Produces the final prediction. For classification, this might be a set of probabilities for each class. For regression, it might be a single numerical value.
 |===
 
-=== 4.7.2 The Training Process
+=== The Training Process
 
 .Figure 4.14: Backpropagation Concept Diagram
 image::ch4/visual_4_14_backpropagation.png[Neural network diagram showing forward pass in blue and backward pass in red with loss calculation,width=85%]
@@ -510,6 +526,7 @@ Training a neural network involves the following high-level steps:
 
 Training deep neural networks is computationally intensive and typically requires specialized hardware such as *GPUs (Graphics Processing Units)*, which can perform many calculations in parallel.
 
+[.definition]
 .Definition: Backpropagation
 ****
 The training process in a neural network in which the model calculates the contribution of each weight to the prediction error and adjusts the weights to improve accuracy.
@@ -522,7 +539,7 @@ One complete pass of the entire training dataset through the neural network duri
 ====
 
 
-=== 4.7.3 ML vs. Deep Learning: Key Differences
+=== ML vs. Deep Learning: Key Differences
 
 .Figure 4.13: Deep Learning vs. Traditional ML Comparison
 image::ch4/visual_4_13_deep_learning_vs_ml.png[Side-by-side comparison of traditional ML and deep learning across complexity; data needs; and use cases,width=85%]
@@ -541,6 +558,7 @@ The AI-900 exam may ask you to compare traditional ML techniques with deep learn
 |*Use cases* |Tabular data, straightforward prediction tasks |Image recognition, natural language processing, speech, complex pattern recognition
 |===
 
+[.reflection]
 .Reflection
 ****
 Why might an organization choose a simpler ML model over a deep learning model, even if the deep learning model could be slightly more accurate? Consider factors beyond raw performance.
@@ -549,7 +567,7 @@ Why might an organization choose a simpler ML model over a deep learning model, 
 
 
 [[sec-4-8]]
-== 4.8 Choosing the Right ML Technique
+== Choosing the Right ML Technique
 
 .Figure 4.3: ML Technique Decision Flowchart
 image::ch4/visual_4_3_ml_decision_tree.png[Decision tree for selecting regression; classification; clustering; or deep learning,width=85%]

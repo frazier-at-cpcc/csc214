@@ -19,11 +19,11 @@ This chapter synthesizes concepts from all previous chapters (Chapters 1–8) in
 
 
 [[sec-9-1]]
-== 9.1 How to Approach Your Study Plan
+== How to Approach Your Study Plan
 
 Success on the AI-900 exam begins long before you sit down at the testing screen. A well-organized study plan turns a broad set of topics into a manageable sequence of focused sessions.
 
-=== 9.1.1 Estimating Your Study Time
+=== Estimating Your Study Time
 
 The amount of preparation you need depends on your starting point. Use the table below as a rough guide:
 
@@ -37,7 +37,7 @@ The amount of preparation you need depends on your starting point. Use the table
 
 These estimates assume focused, active study — not passive reading. If your study sessions involve hands-on exercises, practice questions, and self-testing, you will retain more in fewer hours than if you simply re-read notes.
 
-=== 9.1.2 Allocating Time by Domain Weight
+=== Allocating Time by Domain Weight
 
 .Figure 9.4: Study Time Allocation by Domain
 image::ch9/visual_9_4_study_time_allocation.png[Proportional chart showing recommended study time by exam domain weight,width=85%]
@@ -51,7 +51,7 @@ Before you begin studying, print or bookmark the official AI-900 exam skills out
 ====
 
 
-=== 9.1.3 Building a Study Schedule
+=== Building a Study Schedule
 
 .Figure 9.12: Three-Week Study Schedule
 image::ch9/visual_9_12_study_schedule.png[Calendar timeline showing chapter assignments mapped across three weeks of study,width=85%]
@@ -68,6 +68,7 @@ A concrete schedule keeps your preparation on track. Consider this sample plan f
 |*Final Days* |Targeted Review |Re-test on missed questions, review glossary terms from <<ch-9,Chapter 9>> (this chapter), do a timed practice run
 |===
 
+[.reflection]
 .Reflection
 ****
 Look at your own calendar for the next few weeks. Where can you realistically schedule focused study blocks? Marking specific times — rather than vaguely planning to "`study this weekend`" — significantly increases follow-through.
@@ -76,7 +77,7 @@ Look at your own calendar for the next few weeks. Where can you realistically sc
 
 
 [[sec-9-2]]
-== 9.2 Navigating the Exam Interface
+== Navigating the Exam Interface
 
 .Figure 9.1: Microsoft Certification Exam Interface
 image::ch9/visual_9_1_exam_interface.png[Annotated wireframe of exam screen showing question area; progress indicator; timer; and navigation controls,width=85%]
@@ -84,7 +85,7 @@ image::ch9/visual_9_1_exam_interface.png[Annotated wireframe of exam screen show
 
 Understanding the exam environment before test day reduces anxiety and lets you focus entirely on the questions. Microsoft certification exams delivered through Pearson VUE share a consistent interface layout.
 
-=== 9.2.1 Screen Layout
+=== Screen Layout
 
 When you begin the exam, you will see several key elements:
 
@@ -96,7 +97,7 @@ When you begin the exam, you will see several key elements:
 
 Accessibility accommodations — including extended time, screen magnification, and screen reader support — can be requested through Pearson VUE or Certiport when scheduling your exam. These must be arranged in advance with supporting documentation. The on-screen accessibility options provide supplemental adjustments during the exam itself.
 
-=== 9.2.2 Question Types
+=== Question Types
 
 The AI-900 uses several question formats. Familiarity with each type prevents wasted time figuring out mechanics during the exam.
 
@@ -110,6 +111,7 @@ The AI-900 uses several question formats. Familiarity with each type prevents wa
 |*Yes/No statement sets* |Evaluate several statements as true or false |Treat each statement independently; one wrong answer in the set does not mean all are wrong
 |===
 
+[.definition]
 .Definition: Review Flag
 ****
 A feature in the exam interface that allows you to mark a question so you can easily return to it later. Flagging a question does not change your answer — it simply bookmarks the question for a second review pass.
@@ -118,13 +120,13 @@ A feature in the exam interface that allows you to mark a question so you can ea
 
 
 [[sec-9-3]]
-== 9.3 Time Management During the Exam
+== Time Management During the Exam
 
 With 40–60 questions and 45 minutes on the clock, effective pacing is essential. (Exam format details are subject to change. Verify the current question count and time allotment on the official AI-900 exam page at Microsoft Learn before your exam.) On average, you have roughly 45 seconds to one minute per question. Some questions will take only a few seconds; others may require careful analysis. The key is to avoid spending excessive time on any single question.
 
 The AI-900 uses *scaled scoring*, with a passing threshold of 700 out of 1,000. Scaled scoring means that a score of 700 does not necessarily correspond to answering exactly 70% of questions correctly — Microsoft adjusts scores to account for variations in difficulty across different versions of the exam. Focus on understanding concepts thoroughly rather than aiming for a specific percentage of correct answers.
 
-=== 9.3.1 The Two-Pass Strategy
+=== The Two-Pass Strategy
 
 .Figure 9.2: Two-Pass Strategy Flowchart
 image::ch9/visual_9_2_two_pass_strategy.png[Decision flowchart showing first pass answering and flagging strategy followed by review pass,width=85%]
@@ -136,7 +138,7 @@ One of the most effective approaches is to work through the exam in two passes:
 
 *Second pass — Revisit flagged questions.* After completing the first pass, return to flagged questions. You now have a clearer picture of how much time remains, and you can distribute that time among the questions that need it most.
 
-=== 9.3.2 Pacing Checkpoints
+=== Pacing Checkpoints
 
 .Figure 9.6: Exam Pacing Checkpoints Timeline
 image::ch9/visual_9_6_pacing_checkpoints.png[45-minute timeline with three checkpoint markers at 15; 30; and 40 minutes,width=85%]
@@ -162,11 +164,11 @@ When taking practice exams, always use a timer. Practicing under timed condition
 
 
 [[sec-9-4]]
-== 9.4 Reading Questions Carefully
+== Reading Questions Carefully
 
 Misreading a question is one of the most common — and most preventable — causes of lost points on any certification exam. The AI-900 is no exception.
 
-=== 9.4.1 Watch for Negative Qualifiers
+=== Watch for Negative Qualifiers
 
 Words such as *not*, *except*, *least*, and *never* reverse the logic of a question. Consider the difference between these two questions:
 
@@ -175,7 +177,7 @@ Words such as *not*, *except*, *least*, and *never* reverse the logic of a quest
 
 The first asks you to identify a correct principle. The second asks you to identify the one item that does _not_ belong. Missing a single word can lead you to choose the exact opposite of the correct answer.
 
-=== 9.4.2 Identify What the Question Is Really Asking
+=== Identify What the Question Is Really Asking
 
 Some questions contain a paragraph of context (a scenario) followed by the actual question in the last sentence. It is tempting to start forming an answer while reading the scenario, but the real question may ask something different from what you expected. Train yourself to:
 
@@ -184,7 +186,7 @@ Some questions contain a paragraph of context (a scenario) followed by the actua
 . Mentally rephrase the question in your own words.
 . Only then evaluate the answer choices.
 
-=== 9.4.3 Keyword Spotting in Scenario Questions
+=== Keyword Spotting in Scenario Questions
 
 .Figure 9.3: Keyword-to-Concept Mapping Reference
 image::ch9/visual_9_3_keyword_mapping.png[Color-coded reference card mapping exam keywords to AI concepts by domain,width=85%]
@@ -210,6 +212,7 @@ Scenario-based questions describe a business situation and ask you to choose the
 |"`set tone and constraints for the model`" |Prompt Engineering / System Messages
 |===
 
+[.reflection]
 .Reflection
 ****
 Pick any three rows from the table above. For each one, write a short business scenario (two or three sentences) that would lead to that concept as the answer. Creating your own scenarios is one of the most effective ways to internalize keyword-to-concept mappings.
@@ -218,11 +221,11 @@ Pick any three rows from the table above. For each one, write a short business s
 
 
 [[sec-9-5]]
-== 9.5 Using the Process of Elimination
+== Using the Process of Elimination
 
 When you encounter a question where the correct answer does not immediately stand out, elimination is your most powerful tool.
 
-=== 9.5.1 How Elimination Improves Your Odds
+=== How Elimination Improves Your Odds
 
 .Figure 9.5: Elimination Probability Improvement
 image::ch9/visual_9_5_elimination_probability.png[Progressive bar chart showing probability improvement from 25% to 100% as answer choices are eliminated,width=70%]
@@ -241,7 +244,7 @@ On a standard four-option multiple-choice question, guessing randomly gives you 
 
 Even eliminating a single option meaningfully improves your chances. On an exam where the pass/fail line is determined by a handful of questions, this technique can make a decisive difference.
 
-=== 9.5.2 Common Elimination Clues
+=== Common Elimination Clues
 
 Look for these indicators that an answer option is likely wrong:
 
@@ -258,11 +261,11 @@ In test design, a _distractor_ is an incorrect answer option deliberately crafte
 
 
 [[sec-9-6]]
-== 9.6 Domain-Specific Review Strategies
+== Domain-Specific Review Strategies
 
 The AI-900 covers five major domains. Each domain has its own patterns of frequently tested concepts and common pitfalls. This section provides a focused review strategy for each.
 
-=== 9.6.1 AI Fundamentals and Responsible AI
+=== AI Fundamentals and Responsible AI
 
 .Figure 9.10: Responsible AI Principles Quick Review
 image::ch9/visual_9_10_responsible_ai_review.png[Six-card summary of responsible AI principles with exam keyword hints,width=85%]
@@ -283,7 +286,7 @@ Responsible AI principles appear throughout the exam, not just in the dedicated 
 
 Also review AI workload types. When a scenario describes making large volumes of data searchable, think knowledge mining. When it describes interactive conversation, think conversational AI. The exam tests your ability to match a business problem to the right category of AI solution.
 
-=== 9.6.2 Machine Learning
+=== Machine Learning
 
 .Figure 9.7: ML Type Decision Tree (Review)
 image::ch9/visual_9_7_ml_decision_tree_review.png[Condensed decision tree for selecting regression; classification; or clustering,width=85%]
@@ -297,12 +300,14 @@ Key concepts to master:
 * *Azure Machine Learning workflow:* The general sequence is: create a workspace, prepare data, split into training and validation sets, train the model, evaluate, and deploy. Questions may test whether you know the correct order of these steps.
 * *Training vs. inference pipelines:* Training pipelines build the model; inference pipelines deploy it for predictions. Do not confuse the two.
 
+[.definition]
 .Definition: Overfitting
 ****
 A condition in which a machine learning model learns the training data too precisely — including its noise and anomalies — resulting in strong training performance but poor performance on new, unseen data.
 ****
 
 
+[.definition]
 .Definition: Underfitting
 ****
 A machine learning condition in which a model is too simple to capture the underlying patterns in the data, resulting in poor performance on both training data and new data. Underfitting typically occurs when the model has too few features, insufficient training time, or an overly simplistic algorithm.
@@ -315,7 +320,7 @@ Without looking back, can you name the three types of supervised learning tasks 
 ====
 
 
-=== 9.6.3 Computer Vision
+=== Computer Vision
 
 .Figure 9.8: Computer Vision Task Quick Reference
 image::ch9/visual_9_8_cv_quick_reference.png[Four small panels comparing classification; object detection; segmentation; and OCR tasks,width=85%]
@@ -329,7 +334,7 @@ Understand the distinctions between core tasks:
 * *OCR (Optical Character Recognition):* Extracting text from images. Know that OCR handles both printed and handwritten text, and that it is used for text extraction only — not for general image analysis or facial detection.
 * *Facial detection vs. facial verification:* Detection finds faces in an image; verification confirms whether two faces belong to the same person. Note that emotion detection has been retired for ethical reasons.
 
-=== 9.6.4 Natural Language Processing
+=== Natural Language Processing
 
 .Figure 9.9: NLP Service-to-Task Quick Reference
 image::ch9/visual_9_9_nlp_quick_reference.png[Three-column matching reference mapping NLP tasks to Azure services,width=85%]
@@ -359,7 +364,7 @@ A question describes a company analyzing customer emails to determine whether th
 ====
 
 
-=== 9.6.5 Generative AI
+=== Generative AI
 
 Focus on these key areas:
 
@@ -378,36 +383,37 @@ For each of the five domains, write a one-page summary from memory — without l
 
 
 [[sec-9-7]]
-== 9.7 Managing Stress and Maintaining Focus
+== Managing Stress and Maintaining Focus
 
 Test anxiety can undermine even thorough preparation. Building a few simple habits into your exam-day routine helps you stay calm and think clearly.
 
-=== 9.7.1 Before the Exam
+=== Before the Exam
 
 * *Sleep:* Get a full night of sleep the night before. Cramming until 2 AM is counterproductive; sleep consolidates memory. If your schedule makes a full eight hours difficult — as is common for working professionals, caregivers, and students balancing multiple responsibilities — even a consistent six-hour sleep block improves memory consolidation compared to irregular or fragmented sleep.
 * *Arrive early or log in early:* Whether you are testing at a center or online, give yourself at least 15 minutes of buffer time. Rushing to start the exam elevates stress before you answer a single question.
 * *Eat and hydrate:* A light meal and water before the exam keeps your energy and concentration stable.
 
-=== 9.7.2 During the Exam
+=== During the Exam
 
 * *Breathe:* If you encounter a difficult question or notice the timer moving faster than expected, pause for two or three slow, deep breaths. This activates the body's relaxation response and restores clear thinking.
 * *Maintain momentum:* Do not dwell on a question you have already answered. Once you select an answer and move on, let it go. Ruminating about past questions steals focus from current ones.
 * *Use the review pass wisely:* If you finish your first pass with time remaining, use those final minutes to revisit flagged questions. A fresh perspective often reveals the answer more clearly than prolonged initial deliberation.
 
-=== 9.7.3 Changing Answers
+=== Changing Answers
 
 Research on test-taking generally suggests that initial answers tend to be correct more often than changed answers, though individual results vary. The general guideline is:
 
 * *Change an answer* if you have a clear, specific reason (e.g., you misread the question, or a later question jogged your memory about the correct concept).
 * *Do not change an answer* based solely on vague doubt or second-guessing without new reasoning.
 
+[.reflection]
 .Reflection
 ****
 Think about past exams you have taken. Did you tend to run out of time, finish early, or pace yourself well? Did you change answers and regret it, or catch mistakes by reviewing? Understanding your own testing tendencies helps you apply the right strategies for this exam.
 ****
 
 
-=== 9.7.4 Conducting a Productive Review Pass
+=== Conducting a Productive Review Pass
 
 If you finish your first pass with time remaining, use these guidelines for your review:
 
@@ -418,7 +424,7 @@ If you finish your first pass with time remaining, use these guidelines for your
 
 
 [[sec-9-8]]
-== 9.8 Final Preparation Checklist
+== Final Preparation Checklist
 
 .Figure 9.11: Final Preparation Checklist
 image::ch9/visual_9_11_final_checklist.png[Professionally styled exam preparation checklist with checkbox icons,width=85%]

@@ -22,7 +22,7 @@ This chapter builds on the foundational AI concepts introduced in xref:chapter-1
 
 
 [[sec-2-1]]
-== 2.1 What Are Azure AI Services?
+== What Are Azure AI Services?
 
 Microsoft Azure provides a collection of cloud-based tools known as *Azure AI Services*. These services allow developers to embed intelligent features — such as language understanding, image analysis, speech processing, and content generation — into web and mobile applications without building machine learning models from scratch.
 
@@ -30,6 +30,7 @@ The defining characteristic of Azure AI Services is that they are *prebuilt and 
 
 While many of these services work immediately with no additional configuration, some — such as Azure AI Vision, Azure AI Speech, and Azure OpenAI Service — also support *fine-tuning* with custom data. This flexibility means you can start with a general-purpose model and later adapt it to meet domain-specific requirements.
 
+[.definition]
 .Definition: Azure AI Services
 ****
 A collection of prebuilt, cloud-hosted AI capabilities offered by Microsoft Azure. These services cover areas such as vision, speech, language, decision-making, and generative AI, and they can be consumed through REST APIs, SDKs, or graphical studio interfaces.
@@ -38,21 +39,22 @@ A collection of prebuilt, cloud-hosted AI capabilities offered by Microsoft Azur
 
 
 [[sec-2-2]]
-== 2.2 The Microsoft Azure Platform
+== The Microsoft Azure Platform
 
 Before diving deeper into the AI-specific services, it helps to understand the broader platform on which they run.
 
-=== 2.2.1 Azure at a Glance
+=== Azure at a Glance
 
 Microsoft Azure is one of the world's leading cloud computing platforms. It offers more than 200 services spanning compute, storage, networking, databases, analytics, AI, and more. Azure operates across dozens of geographic regions worldwide, giving organizations the ability to deploy applications close to their users for improved performance and regulatory compliance. (For the current count, visit the Azure global infrastructure page.)
 
+[.definition]
 .Definition: Cloud Computing
 ****
 The delivery of computing services — including servers, storage, databases, networking, and AI — over the internet, enabling on-demand scalability and pay-as-you-go pricing.
 ****
 
 
-=== 2.2.2 Deployment Environments
+=== Deployment Environments
 
 .Figure 2.5: Azure AI Deployment Environments
 image::ch2/visual_2_5_deployment_environments.png[Three-panel illustration showing Cloud; On-Premises; and Edge deployment environments,width=85%]
@@ -68,24 +70,28 @@ Azure supports three primary deployment environments. The AI-900 exam expects yo
 |*Edge* |Data is processed close to where it is generated, often on IoT devices or in locations with limited connectivity. This reduces latency and bandwidth costs. |A manufacturing plant runs quality-inspection AI on cameras at the assembly line rather than sending video to a remote data center.
 |===
 
+[.definition]
 .Definition: Edge Computing
 ****
 A computing paradigm in which data processing occurs near the source of the data — such as on a sensor, gateway, or local device — rather than in a centralized cloud data center. Edge computing reduces latency and can operate even when network connectivity is intermittent.
 ****
 
 
+[.definition]
 .Definition: Internet of Things (IoT)
 ****
 A network of physical devices embedded with sensors, software, and connectivity that enables them to collect and exchange data. Edge computing is closely associated with IoT deployments.
 ****
 
 
+[.definition]
 .Definition: On-Premises Deployment
 ****
 A deployment model in which software and infrastructure are hosted within an organization's own physical facilities rather than in a third-party cloud environment.
 ****
 
 
+[.reflection]
 .Reflection
 ****
 Consider an organization you are familiar with — a workplace, a school, or a business you patronize. Which deployment environment (cloud, on-premises, or edge) would best suit its needs, and why?
@@ -94,11 +100,11 @@ Consider an organization you are familiar with — a workplace, a school, or a b
 
 
 [[sec-2-3]]
-== 2.3 Setting Up an Azure Account
+== Setting Up an Azure Account
 
 To work with Azure AI Services, you need an Azure account. Microsoft offers several options that make it easy to get started at no cost.
 
-=== 2.3.1 Free Account
+=== Free Account
 
 New users can sign up at https://azure.microsoft.com[azure.microsoft.com] for a free account. The free trial typically includes:
 
@@ -106,14 +112,15 @@ New users can sign up at https://azure.microsoft.com[azure.microsoft.com] for a 
 * Free access to a selection of popular services for the first 12 months, subject to usage limits
 * More than 55 services that remain free indefinitely, as long as usage stays within specified caps
 
-=== 2.3.2 Student Account
+=== Student Account
 
 Students can sign up for *Azure for Students*, which provides free credits (amount varies; verify at azure.microsoft.com/free/students) for 12 months without requiring a credit card. This is an excellent option for learners in academic programs.
 
-=== 2.3.3 Pay-As-You-Go
+=== Pay-As-You-Go
 
 After the free trial or student plan expires, Azure operates on a *pay-as-you-go* billing model. You pay only for the resources you consume, and there is no long-term contract. Azure also provides cost-management tools, budget alerts, and a pricing calculator to help you monitor spending.
 
+[.definition]
 .Definition: Pay-As-You-Go
 ****
 A billing model in which customers are charged only for the Azure resources they consume, with no long-term commitment required.
@@ -128,7 +135,7 @@ For the purposes of this course and AI-900 exam preparation, the free or student
 
 
 [[sec-2-4]]
-== 2.4 Navigating the Azure Portal
+== Navigating the Azure Portal
 
 .Figure 2.1: Azure Portal Dashboard
 image::ch2/visual_2_1_azure_portal.png[Annotated screenshot of the Azure portal showing search bar; service shortcuts; and resource sections,width=85%]
@@ -136,7 +143,7 @@ image::ch2/visual_2_1_azure_portal.png[Annotated screenshot of the Azure portal 
 
 The *Azure portal* is a web-based management console where you can create, configure, and monitor all of your Azure resources.
 
-=== 2.4.1 Portal Layout
+=== Portal Layout
 
 When you log in at https://portal.azure.com[portal.azure.com], you will see a dashboard that includes:
 
@@ -147,6 +154,7 @@ When you log in at https://portal.azure.com[portal.azure.com], you will see a da
 
 The portal is designed to be intuitive and customizable. You can pin frequently used services to your dashboard and rearrange tiles to suit your workflow.
 
+[.definition]
 .Definition: Azure Portal
 ****
 The web-based graphical interface provided by Microsoft for managing Azure subscriptions, resources, and services. It is accessible at portal.azure.com.
@@ -155,17 +163,18 @@ The web-based graphical interface provided by Microsoft for managing Azure subsc
 
 
 [[sec-2-5]]
-== 2.5 Creating an Azure AI Resource
+== Creating an Azure AI Resource
 
 Before you can use any Azure AI Service, you must create a *resource* — a manageable item within Azure that represents an instance of a service.
 
+[.definition]
 .Definition: Azure Resource
 ****
 A manageable item in Azure that represents an instance of a service, such as a Computer Vision service or a storage account. Resources are organized within resource groups.
 ****
 
 
-=== 2.5.1 Two Types of Resources
+=== Two Types of Resources
 
 .Figure 2.2: Multiservice vs. Single-Service Resource Comparison
 image::ch2/visual_2_2_multiservice_vs_single.png[Diagram comparing multiservice resource with single endpoint to separate single-service resources with individual endpoints,width=85%]
@@ -180,19 +189,21 @@ Azure gives you two approaches for provisioning AI resources:
 |*Single-service resource* |A dedicated resource for one specific Azure AI Service. Each service receives its own key and endpoint. |Tracking usage and costs for a particular service independently; production deployments where isolation is important.
 |===
 
+[.definition]
 .Definition: Endpoint
 ****
 A URL that serves as the access point where your application connects to interact with an Azure service. Each resource you create is assigned a unique endpoint.
 ****
 
 
+[.definition]
 .Definition: API Key
 ****
 A unique identifier used to authenticate requests to an Azure AI Service. When you create a resource, Azure generates keys that your application must include in its requests to prove it has permission to use the service.
 ****
 
 
-=== 2.5.2 Steps to Create a Resource
+=== Steps to Create a Resource
 
 .Figure 2.7: Azure AI Resource Creation Workflow
 image::ch2/visual_2_7_resource_creation.png[Six-step flowchart for creating an Azure AI resource,width=85%]
@@ -208,7 +219,7 @@ The most straightforward method for creating an Azure AI resource is through the
 . Fill in the required configuration fields (described below)
 . Review your settings and click *Create* to provision the resource
 
-=== 2.5.3 Configuration Fields
+=== Configuration Fields
 
 .Figure 2.8: Azure Resource Configuration Fields
 image::ch2/visual_2_8_resource_config.png[Annotated form mockup showing subscription; resource group; region; name; and pricing tier fields,width=85%]
@@ -226,12 +237,14 @@ When creating a resource, you will need to provide the following information:
 |*Pricing tier* |The service level that determines available features, performance limits, and cost. Many services offer a free tier with limited usage.
 |===
 
+[.definition]
 .Definition: Resource Group
 ****
 A logical container in Azure that holds related resources for an application or project. Resource groups help you organize, manage, and control access to collections of resources as a single unit.
 ****
 
 
+[.reflection]
 .Reflection
 ****
 Imagine you are building an application that needs to analyze customer reviews (text) and also scan product photos for defects (images). Would you choose a multiservice resource or two single-service resources? What factors would influence your decision?
@@ -240,7 +253,7 @@ Imagine you are building an application that needs to analyze customer reviews (
 
 
 [[sec-2-6]]
-== 2.6 Accessing Azure AI Services
+== Accessing Azure AI Services
 
 .Figure 2.4: Three Methods for Accessing Azure AI Services
 image::ch2/visual_2_4_access_methods.png[Three-column comparison of REST API; SDK; and Studio access methods,width=85%]
@@ -248,7 +261,7 @@ image::ch2/visual_2_4_access_methods.png[Three-column comparison of REST API; SD
 
 Once you have created a resource, there are three primary ways to interact with Azure AI Services.
 
-=== 2.6.1 REST APIs
+=== REST APIs
 
 .Figure 2.3: REST API Request/Response Flow
 image::ch2/visual_2_3_rest_api_flow.png[Flow diagram showing application sending HTTP request with API key to Azure AI endpoint and receiving JSON response,width=85%]
@@ -258,13 +271,13 @@ A *REST API* (Representational State Transfer Application Programming Interface)
 
 Think of a REST API as a digital bridge: your application sends a request to the Azure endpoint, the AI service processes the input, and the service sends back a result. This is the same pattern used when a weather application retrieves the latest forecast from a weather data provider, or when an airline website checks seat availability from its reservation system.
 
-=== 2.6.2 SDKs
+=== SDKs
 
 *Software Development Kits (SDKs)* are packages of libraries, tools, and documentation that simplify the process of building applications for a specific platform. Microsoft provides Azure AI SDKs for popular programming languages, including Python, C#, Java, and JavaScript. SDKs wrap REST API calls in convenient functions, reducing the amount of code you need to write.
 
 Think of an SDK as a pre-assembled toolkit. If the REST API is the raw connection point (like a standard electrical outlet), the SDK is the appliance's power adapter — it handles the specific translation and wiring so you can connect without worrying about low-level details.
 
-=== 2.6.3 Studio Interfaces
+=== Studio Interfaces
 
 For users who want to explore AI capabilities without writing code, Azure provides web-based *studio* environments. These graphical tools are covered in detail in the next section.
 
@@ -276,12 +289,14 @@ For users who want to explore AI capabilities without writing code, Azure provid
 |*Studio* |No |Exploration, demos, prototyping, and evaluation without code
 |===
 
+[.definition]
 .Definition: REST API
 ****
 A set of rules and conventions that allow software applications to communicate over the internet. REST APIs use standard HTTP methods (GET, POST, PUT, DELETE) to exchange data, typically in JSON format.
 ****
 
 
+[.definition]
 .Definition: SDK (Software Development Kit)
 ****
 A collection of tools, libraries, sample code, and documentation provided to developers to simplify building applications for a particular platform or service.
@@ -302,7 +317,7 @@ A data scientist comfortable with Python wants to automate image analysis across
 
 
 [[sec-2-7]]
-== 2.7 Azure AI Studios
+== Azure AI Studios
 
 .Figure 2.6: Azure AI Studios Overview
 image::ch2/visual_2_6_azure_ai_studios.png[Hub-and-spoke diagram showing Azure AI Foundry connected to Vision; Language; Speech; and Content Safety Studios,width=85%]
@@ -310,7 +325,7 @@ image::ch2/visual_2_6_azure_ai_studios.png[Hub-and-spoke diagram showing Azure A
 
 Azure provides several specialized *studio* environments that offer graphical, browser-based interfaces for working with AI Services. Studios are particularly valuable for beginners and for rapid prototyping, because they allow you to upload data, experiment with different AI capabilities, and view results — all without writing a single line of code.
 
-=== 2.7.1 Overview of Studios
+=== Overview of Studios
 
 [width="100%",cols="50%,50%",options="header",]
 |===
@@ -321,17 +336,18 @@ Azure provides several specialized *studio* environments that offer graphical, b
 |*Content Safety Studio* |Detection and moderation of harmful content such as hate speech, violence, and other inappropriate material; used to establish content safeguards
 |===
 
-=== 2.7.2 Azure AI Foundry
+=== Azure AI Foundry
 
 In addition to the individual studios listed above, Microsoft offers *Azure AI Foundry* (formerly known as *Azure AI Studio*). Azure AI Foundry is a unified, web-based platform that brings together multiple Azure AI Services, APIs, and models in a single environment. Developers can use it to design, build, and deploy AI applications that draw on a combination of capabilities — for example, an application that uses both language understanding and generative AI.
 
+[.definition]
 .Definition: Azure AI Foundry
 ****
 A unified, web-based development platform (formerly called Azure AI Studio) that combines multiple Azure AI Services, APIs, and models. It enables developers to create end-to-end AI applications from a single environment.
 ****
 
 
-=== 2.7.3 Using a Studio: A Walkthrough
+=== Using a Studio: A Walkthrough
 
 To illustrate how studios work, consider the following example using Vision Studio:
 
@@ -344,6 +360,7 @@ To illustrate how studios work, consider the following example using Vision Stud
 
 This entire workflow requires no programming. The studio handles the API calls behind the scenes and presents results in a visual interface. You can experiment with other features — such as extracting text from images (OCR), detecting objects, or identifying faces — using the same straightforward process.
 
+[.reflection]
 .Reflection
 ****
 Studios provide a no-code way to experiment with AI. How might a product manager or business analyst use a studio to evaluate whether a particular AI capability is worth integrating into their company's application?
@@ -352,7 +369,7 @@ Studios provide a no-code way to experiment with AI. How might a product manager
 
 
 [[sec-2-8]]
-== 2.8 How Azure AI Services Connect to the AI-900 Exam
+== How Azure AI Services Connect to the AI-900 Exam
 
 The AI-900 exam tests your understanding of Azure AI Services at a *conceptual* level. You are not expected to demonstrate deep technical skills such as writing API calls, configuring network security, or debugging deployment pipelines. Instead, the exam focuses on:
 

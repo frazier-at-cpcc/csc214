@@ -19,7 +19,7 @@ By the end of this chapter, you will be able to:
 
 
 [[sec-7-1]]
-== 7.1 What Is Natural Language Processing?
+== What Is Natural Language Processing?
 
 Natural language processing (NLP) is a branch of artificial intelligence concerned with giving computers the ability to read, interpret, and generate human language. Rather than requiring people to communicate with machines through rigid commands or structured queries, NLP allows systems to work with language as people naturally use it — complete with ambiguity, slang, and context-dependent meaning.
 
@@ -46,12 +46,14 @@ NLP capabilities generally fall into three broad categories:
 |*Translation* |Converts text or speech from one human language to another |A government agency translates public health guidance into dozens of languages for a multilingual population
 |===
 
+[.definition]
 .Definition: Natural Language Processing (NLP)
 ****
 A field of artificial intelligence focused on enabling computers to understand, interpret, and produce human language in both written and spoken forms.
 ****
 
 
+[.reflection]
 .Reflection
 ****
 Think about the last time you interacted with a system that used NLP — perhaps a chatbot, a voice assistant, or a translation tool. What worked well? What limitations did you notice?
@@ -60,7 +62,7 @@ Think about the last time you interacted with a system that used NLP — perhaps
 
 
 [[sec-7-2]]
-== 7.2 Tokenization and Text Preprocessing
+== Tokenization and Text Preprocessing
 
 .Figure 7.2: Text Preprocessing Pipeline
 image::ch7/visual_7_2_preprocessing_pipeline.png[Linear pipeline from raw text through normalization; stop-word removal; stemming; tokenization; to numerical representation,width=85%]
@@ -116,6 +118,7 @@ Normalization simplifies processing, but it is not always desirable. In some con
 
 Words such as "`the,`" "`is,`" "`at,`" and "`an`" appear frequently in almost every English text but carry little meaning on their own. These are called *stop words*. Removing them allows an NLP model to focus on the words that contribute the most to a text's meaning.
 
+[.definition]
 .Definition: Stop Words
 ****
 Common words (such as "`the,`" "`is,`" "`and`") that carry little meaning on their own and are often removed during text preprocessing to reduce noise.
@@ -132,6 +135,7 @@ image::ch7/visual_7_13_ngrams.png[Illustration showing unigrams; bigrams; and tr
 
 Rather than analyzing words one at a time, NLP models sometimes look at sequences of words together. These sequences are called *n-grams*:
 
+[.definition]
 .Definition: N-Gram
 ****
 A contiguous sequence of n words from a text, used to capture multi-word phrases and preserve local context that individual words alone would miss.
@@ -154,6 +158,7 @@ NLP models often need to recognize that different forms of a word share a common
 
 * *Stemming* reduces words to a base form by removing suffixes. For example, "`running,`" "`runs,`" and "`runner`" might all be reduced to "`run.`" Stemming is fast but can produce stems that are not real words (e.g., reducing "`studies`" to "`studi`").
 
+[.definition]
 .Definition: Stemming
 ****
 A text preprocessing technique that reduces words to a base form by removing suffixes (e.g., "`running`" becomes "`run`"), sometimes producing non-standard word forms.
@@ -162,12 +167,14 @@ A text preprocessing technique that reduces words to a base form by removing suf
 
 * *Lemmatization* also reduces words to a base form, but it uses linguistic rules to ensure the result is a valid word. "`Better`" would be lemmatized to "`good,`" and "`was`" would become "`be.`" Lemmatization is more accurate than stemming but requires more computational resources.
 
+[.definition]
 .Definition: Lemmatization
 ****
 A text preprocessing technique that reduces words to their dictionary base form using linguistic rules (e.g., "`better`" becomes "`good`"), always producing valid words.
 ****
 
 
+[.definition]
 .Definition: Tokenization
 ****
 The process of breaking text into smaller units (tokens), each assigned a numerical identifier, as a prerequisite for computational text analysis.
@@ -182,7 +189,7 @@ For the AI-900 exam, focus on understanding _why_ tokenization is necessary (com
 
 
 [[sec-7-3]]
-== 7.3 Frequency Analysis and Text Classification
+== Frequency Analysis and Text Classification
 
 .Figure 7.11: TF-IDF Concept Illustration
 image::ch7/visual_7_11_tfidf.png[Multi-document example showing how TF-IDF scoring identifies important terms versus common words,width=85%]
@@ -240,18 +247,21 @@ Models like BERT and GPT, which you may encounter in other reading, are examples
 ====
 
 
+[.definition]
 .Definition: TF-IDF
 ****
 A statistical measure that evaluates how important a word is to a document within a larger collection by combining how frequently the word appears in the document with how rarely it appears across all documents.
 ****
 
 
+[.definition]
 .Definition: Word Embedding
 ****
 A numerical representation of a word or token in a multidimensional space, where the position encodes semantic meaning and relationships to other words.
 ****
 
 
+[.reflection]
 .Reflection
 ****
 Consider the sentence "`The bank by the river bank was robbed.`" How would a bag-of-words model handle the word "`bank`" versus a contextual embedding model? What information is lost and gained by each approach?
@@ -260,7 +270,7 @@ Consider the sentence "`The bank by the river bank was robbed.`" How would a bag
 
 
 [[sec-7-4]]
-== 7.4 Azure AI Services for NLP
+== Azure AI Services for NLP
 
 .Figure 7.3: Azure NLP Services Ecosystem
 image::ch7/visual_7_3_nlp_services_ecosystem.png[Three-branch diagram showing Azure AI Language; Azure AI Translator; and Azure AI Speech with their capabilities,width=85%]
@@ -268,7 +278,7 @@ image::ch7/visual_7_3_nlp_services_ecosystem.png[Three-branch diagram showing Az
 
 Microsoft Azure provides three primary services for building NLP solutions: *Azure AI Language*, *Azure AI Translator*, and *Azure AI Speech*. Each service addresses a different aspect of language understanding and generation.
 
-=== 7.4.1 Azure AI Language
+=== Azure AI Language
 
 Azure AI Language is a cloud-based service that provides text analytics and natural language understanding capabilities. It offers both preconfigured features (ready to use without training) and customizable features (that you can train on your own data).
 
@@ -292,7 +302,7 @@ Before moving on to the next service, can you name which Azure AI Language capab
 ====
 
 
-=== 7.4.2 Azure AI Translator
+=== Azure AI Translator
 
 Azure AI Translator enables applications to translate text between languages in real time. It supports more than 100 languages and can handle both individual requests and large-scale batch operations.
 
@@ -304,7 +314,7 @@ Azure AI Translator enables applications to translate text between languages in 
 |*Custom Translator* |Allows organizations to build custom translation models trained on domain-specific terminology (e.g., legal, medical, or technical language)
 |===
 
-=== 7.4.3 Azure AI Speech
+=== Azure AI Speech
 
 Azure AI Speech handles the conversion between spoken language and text. It powers voice-enabled applications, accessibility features, and real-time communication tools.
 
@@ -317,6 +327,7 @@ Azure AI Speech handles the conversion between spoken language and text. It powe
 |*Speech Translation* |Translates spoken language from one language to another in real time
 |===
 
+[.definition]
 .Definition: Azure AI Language
 ****
 A cloud-based Azure service that provides text analytics capabilities including entity recognition, sentiment analysis, key phrase extraction, language detection, and summarization.
@@ -331,7 +342,7 @@ The AI-900 exam frequently tests your ability to match a specific NLP task to th
 
 
 [[sec-7-5]]
-== 7.5 Key Phrase Extraction
+== Key Phrase Extraction
 
 Key phrase extraction is an NLP technique that automatically identifies the most important words and phrases in a body of text. Rather than requiring someone to read an entire document, key phrase extraction surfaces the central topics and themes in seconds.
 
@@ -368,6 +379,7 @@ A key phrase extraction model might return: - battery life - laptop - keyboard -
 
 These extracted phrases give a quick summary of what the reviewer discussed without requiring anyone to read the full text.
 
+[.reflection]
 .Reflection
 ****
 Imagine you manage a product team receiving hundreds of reviews per day. How would key phrase extraction change the way you prioritize product improvements?
@@ -376,7 +388,7 @@ Imagine you manage a product team receiving hundreds of reviews per day. How wou
 
 
 [[sec-7-6]]
-== 7.6 Named Entity Recognition and Entity Linking
+== Named Entity Recognition and Entity Linking
 
 .Figure 7.8: Entity Linking Disambiguation
 image::ch7/visual_7_8_entity_linking.png[Branching diagram showing the word Mercury disambiguated to planet; element; record label; or Roman god based on context,width=85%]
@@ -424,18 +436,21 @@ Entity linking examines the surrounding context and connects "`Mercury`" to the 
 
 This disambiguation is critical in applications like: - *News aggregation*, where mentions of "`Apple`" must be distinguished between the technology company and the fruit - *Knowledge graph construction*, where entities must be mapped to unique identifiers - *Healthcare*, where a drug name might also be a common English word
 
+[.definition]
 .Definition: Named Entity Recognition (NER)
 ****
 An NLP technique that identifies and classifies named entities (such as people, places, organizations, and dates) within unstructured text.
 ****
 
 
+[.definition]
 .Definition: Entity Linking
 ****
 The process of connecting a recognized entity in text to a specific, unambiguous entry in a knowledge base or reference source.
 ****
 
 
+[.reflection]
 .Reflection
 ****
 Consider a news article that mentions "`Apple`" and "`Amazon.`" How might named entity recognition and entity linking work together to determine whether the text is discussing technology companies, the fruit, or the river?
@@ -444,7 +459,7 @@ Consider a news article that mentions "`Apple`" and "`Amazon.`" How might named 
 
 
 [[sec-7-7]]
-== 7.7 Sentiment Analysis and Language Detection
+== Sentiment Analysis and Language Detection
 
 .Figure 7.7: Sentiment Analysis Example
 image::ch7/visual_7_7_sentiment_analysis.png[Three example sentences with sentiment scores showing positive; negative; and neutral classifications,width=75%]
@@ -506,6 +521,7 @@ Language detection is typically used as a preprocessing step. For example, befor
 
 When text contains a mix of languages, the service identifies the predominant language. When text is too short or ambiguous for a confident determination (such as a single emoji), the service may return "`unknown`" with a low confidence score.
 
+[.definition]
 .Definition: Sentiment Analysis
 ****
 An NLP technique that evaluates text to determine whether the expressed opinion or emotion is positive, negative, or neutral.
@@ -520,11 +536,11 @@ Remember that sentiment analysis goes beyond simple keyword matching. Modern mod
 
 
 [[sec-7-8]]
-== 7.8 Speech Recognition and Speech Synthesis
+== Speech Recognition and Speech Synthesis
 
 Speech processing is divided into two complementary capabilities: *speech recognition* (converting spoken language to text) and *speech synthesis* (converting text to spoken language). Together, they enable natural voice-based interactions between humans and machines.
 
-=== 7.8.1 Speech Recognition (Speech-to-Text)
+=== Speech Recognition (Speech-to-Text)
 
 .Figure 7.6: Speech Recognition Pipeline
 image::ch7/visual_7_6_speech_recognition_pipeline.png[Five-stage pipeline from audio capture through feature extraction; acoustic modeling; language modeling; to decoded text,width=85%]
@@ -557,7 +573,7 @@ The process involves several stages:
 
 Azure AI Speech offers both real-time speech-to-text (for live audio streams) and batch transcription (for processing prerecorded audio files). The service also includes features like *speaker diarization*, which identifies and labels different speakers in a conversation, and a *Fast Transcription API* for rapid processing of audio files.
 
-=== 7.8.2 Speech Synthesis (Text-to-Speech)
+=== Speech Synthesis (Text-to-Speech)
 
 Speech synthesis takes written text as input and produces natural-sounding spoken audio as output.
 
@@ -583,18 +599,21 @@ Azure AI Speech uses *neural voice models* to produce highly realistic speech. T
 |*Interactive learning* |Educational applications read content aloud, supporting auditory learners and language practice
 |===
 
+[.definition]
 .Definition: Speech Recognition
 ****
 The process of converting spoken language into written text, also known as speech-to-text.
 ****
 
 
+[.definition]
 .Definition: Speech Synthesis
 ****
 The process of converting written text into spoken audio, also known as text-to-speech.
 ****
 
 
+[.reflection]
 .Reflection
 ****
 Speech recognition accuracy has improved dramatically in recent years but still struggles with certain challenges. What situations might cause speech recognition errors? Consider factors like background noise, accents, technical vocabulary, and multiple speakers.
@@ -603,7 +622,7 @@ Speech recognition accuracy has improved dramatically in recent years but still 
 
 
 [[sec-7-9]]
-== 7.9 Translation
+== Translation
 
 === The Challenge of Machine Translation
 
@@ -636,6 +655,7 @@ Speech translation typically involves two steps: first, speech recognition conve
 
 Azure AI Translator supports more than 100 languages for text translation. Organizations can also use the *Custom Translator* feature to build domain-specific translation models that handle specialized vocabulary — for example, medical terminology, legal jargon, or proprietary product names that a general-purpose translator might handle poorly.
 
+[.definition]
 .Definition: Neural Machine Translation (NMT)
 ****
 A machine translation approach that uses deep neural networks trained on large parallel text corpora to produce translations that account for context, grammar, and meaning across entire sentences.
@@ -650,7 +670,7 @@ The AI-900 exam distinguishes between text translation and speech translation. R
 
 
 [[sec-7-10]]
-== 7.10 Conversational Language Understanding (CLU)
+== Conversational Language Understanding (CLU)
 
 .Figure 7.5: CLU Utterance, Intent, and Entity Breakdown
 image::ch7/visual_7_5_clu_breakdown.png[Annotated example showing utterance; identified intent; and extracted entities with color coding,width=85%]
@@ -706,6 +726,7 @@ Azure Language Studio is the web-based tool that provides a graphical interface 
 * *E-commerce assistants:* "`Show me running shoes under $80 in size 10`" (Intent: ProductSearch; Entities: running shoes, $80, size 10)
 * *Healthcare assistants:* "`Remind me to take my medication at 9 PM`" (Intent: SetReminder; Entities: medication, 9 PM)
 
+[.definition]
 .Definition: Conversational Language Understanding (CLU)
 ****
 A feature of Azure AI Language that enables developers to build models that interpret natural language input by identifying the user's intent and extracting relevant entities.
@@ -720,7 +741,7 @@ The AI-900 exam may present a scenario and ask you to identify the intent, entit
 
 
 [[sec-7-11]]
-== 7.11 Conversational AI and Knowledge Bases
+== Conversational AI and Knowledge Bases
 
 .Figure 7.12: Conversational AI Bot Architecture
 image::ch7/visual_7_12_conversational_ai_bot.png[Flow diagram showing user question through bot to knowledge base search with confidence-based routing,width=85%]
@@ -765,12 +786,14 @@ Conversational AI bots work best with well-defined topics backed by quality know
 
 For these situations, a well-designed bot should be able to gracefully hand off the conversation to a human agent.
 
+[.definition]
 .Definition: Knowledge Base
 ****
 A structured collection of question-and-answer pairs that a conversational AI bot uses to respond to user inquiries.
 ****
 
 
+[.reflection]
 .Reflection
 ****
 Consider a customer support scenario at an organization you are familiar with. Which questions could a bot handle effectively, and which would still require a human agent? What criteria would you use to decide?

@@ -18,7 +18,7 @@ By the end of this chapter, you will be able to:
 
 
 [[sec-5-1]]
-== 5.1 What Is Azure Machine Learning?
+== What Is Azure Machine Learning?
 
 Azure Machine Learning is a cloud service from Microsoft designed to support the full lifecycle of machine learning projects. It provides tools for preparing data, training models, evaluating results, and deploying solutions — all within a managed cloud environment.
 
@@ -26,6 +26,7 @@ What makes Azure Machine Learning distinctive is that it serves a broad range of
 
 Azure Machine Learning is not limited to Microsoft's own algorithms or frameworks. It integrates with widely used open-source libraries such as *PyTorch*, *TensorFlow*, and *scikit-learn* (popular programming tools and libraries used by data scientists to build models), giving practitioners the freedom to use the tools they already know while benefiting from Azure's managed infrastructure.
 
+[.definition]
 .Definition: Azure Machine Learning
 ****
 A cloud-based service on Microsoft Azure that provides end-to-end tools for building, training, evaluating, deploying, and managing machine learning models. It supports both code-first and visual development experiences.
@@ -34,7 +35,7 @@ A cloud-based service on Microsoft Azure that provides end-to-end tools for buil
 
 
 [[sec-5-2]]
-== 5.2 The Azure Machine Learning Workspace
+== The Azure Machine Learning Workspace
 
 .Figure 5.3: Azure ML Workspace Architecture
 image::ch5/visual_5_3_workspace_architecture.png[Hub-and-spoke diagram showing workspace connected to datastores; compute; experiments; models; endpoints; and pipelines,width=85%]
@@ -63,12 +64,14 @@ The following table summarizes the main assets organized within an Azure Machine
 
 Once a workspace exists, you interact with it primarily through *Azure Machine Learning Studio*, a browser-based portal. The studio provides a unified interface where you can import data, launch experiments, monitor training runs, review evaluation metrics, and deploy models — all without leaving your browser.
 
+[.definition]
 .Definition: Azure ML Studio
 ****
 A browser-based portal for interacting with an Azure Machine Learning workspace, providing access to tools like AutoML and the Designer without requiring local software installation.
 ****
 
 
+[.definition]
 .Definition: Azure ML Workspace
 ****
 The top-level Azure resource that serves as the central hub for all machine learning assets, including data, compute, models, and deployments. Every Azure Machine Learning project begins with creating or selecting a workspace.
@@ -83,7 +86,7 @@ For the AI-900 exam, you do not need to memorize how to create a workspace step 
 
 
 [[sec-5-3]]
-== 5.3 Core Capabilities of Azure Machine Learning
+== Core Capabilities of Azure Machine Learning
 
 .Figure 5.5: ML Lifecycle Overview
 image::ch5/visual_5_5_ml_lifecycle.png[Circular lifecycle diagram showing data preparation through deployment and monitoring,width=85%]
@@ -91,25 +94,25 @@ image::ch5/visual_5_5_ml_lifecycle.png[Circular lifecycle diagram showing data p
 
 Azure Machine Learning offers a broad set of capabilities that span the entire model lifecycle. Understanding these capabilities at a high level is essential for the AI-900 exam.
 
-=== 5.3.1 Data Preparation and Exploration
+=== Data Preparation and Exploration
 
 Before any model can be trained, data must be collected, cleaned, and understood. Azure Machine Learning allows you to register datasets within your workspace, explore their structure and distributions, and apply transformations to prepare them for modeling. Data can be uploaded from local files, connected from Azure storage services, or imported from external sources.
 
-=== 5.3.2 Model Training
+=== Model Training
 
 Azure Machine Learning provides on-demand compute resources — from single virtual machines to multi-node clusters — that scale to meet the demands of your training jobs. You can submit training jobs through code (using the Python SDK or CLI) or through the visual tools described later in this chapter. The platform tracks every training run, logging metrics, parameters, and outputs so that you can compare experiments over time.
 
-=== 5.3.3 Model Evaluation
+=== Model Evaluation
 
 After training, you need to determine how well a model performs. Azure Machine Learning automatically records evaluation metrics for each run. For regression tasks, you might examine metrics like mean absolute error (MAE) or root mean squared error (RMSE). For classification tasks, metrics such as accuracy, precision, recall, and the F1 score are commonly reviewed. These metrics help you decide whether a model is ready for deployment or needs further tuning.
 
-=== 5.3.4 Model Registration and Management
+=== Model Registration and Management
 
 Once a model meets your performance standards, you register it in the workspace. Registration creates a versioned record of the model artifact, making it easy to track which version is deployed, roll back to earlier versions, or compare performance across iterations.
 
 For example, if a deployed churn prediction model is retrained on new data and achieves better accuracy, the new version can be registered alongside the original. If the update introduces unexpected behavior, the team can roll back to the prior registered version without rebuilding from scratch.
 
-=== 5.3.5 Model Deployment
+=== Model Deployment
 
 .Figure 5.6: Real-Time vs. Batch Deployment
 image::ch5/visual_5_6_deployment_types.png[Two-panel comparison of real-time endpoint and batch endpoint deployment types,width=85%]
@@ -126,18 +129,20 @@ Azure Machine Learning supports multiple deployment options.
 |*Batch endpoint* |The model processes large volumes of data in scheduled or on-demand batches, returning results asynchronously
 |===
 
-=== 5.3.6 MLOps and Monitoring
+=== MLOps and Monitoring
 
 *MLOps* (Machine Learning Operations) refers to practices that bring DevOps-style rigor to the machine learning lifecycle. Azure Machine Learning integrates with tools like *MLflow* for experiment tracking and model management. Once a model is deployed, you can monitor its performance over time, detect data drift (changes in input data that may degrade predictions), and redeploy updated models as needed.
 
 For example, if a model trained on pre-pandemic purchasing behavior is still deployed two years later, the statistical distribution of input features may have shifted substantially — customers may now buy more online and less in-store. This shift can cause predictions to degrade over time, which is why monitoring for data drift is essential.
 
+[.definition]
 .Definition: MLOps
 ****
 A set of practices that apply DevOps principles — such as version control, continuous integration, continuous deployment, and monitoring — to the machine learning lifecycle. The goal is to make model development and deployment reliable, reproducible, and scalable.
 ****
 
 
+[.reflection]
 .Reflection
 ****
 Consider a scenario where a deployed model begins making less accurate predictions over several months. What might cause this, and how could monitoring and redeployment practices help address it?
@@ -146,7 +151,7 @@ Consider a scenario where a deployed model begins making less accurate predictio
 
 
 [[sec-5-4]]
-== 5.4 Automated Machine Learning (AutoML)
+== Automated Machine Learning (AutoML)
 
 .Figure 5.2: AutoML Process Diagram
 image::ch5/visual_5_2_automl_process.png[Flow diagram showing AutoML pipeline from data input through algorithm selection to best model,width=85%]
@@ -154,7 +159,7 @@ image::ch5/visual_5_2_automl_process.png[Flow diagram showing AutoML pipeline fr
 
 One of the most powerful features of Azure Machine Learning is *Automated Machine Learning*, commonly called *AutoML*. AutoML is designed to simplify and accelerate the model development process by automating many of the decisions that traditionally require deep expertise.
 
-=== 5.4.1 What AutoML Automates
+=== What AutoML Automates
 
 When building a machine learning model manually, a practitioner must make a series of decisions: which algorithm to try, how to preprocess the data, which hyperparameters to tune, and how to validate results. AutoML handles these decisions systematically. It tries multiple combinations of algorithms and settings, evaluates each one against a chosen metric, and identifies the best-performing model.
 
@@ -165,13 +170,14 @@ The tasks that AutoML can automate include:
 * *Hyperparameter tuning* — adjusting the internal settings of each algorithm to find optimal configurations
 * *Model evaluation* — scoring each candidate model using the metric you specify and ranking them by performance
 
+[.definition]
 .Definition: Hyperparameter
 ****
 A configuration setting for a machine learning algorithm (such as learning rate or tree depth) that is set before training begins and directly influences how the model learns from data. AutoML automates hyperparameter tuning by testing many combinations to find the best settings.
 ****
 
 
-=== 5.4.2 Supported Task Types
+=== Supported Task Types
 
 .Figure 5.7: AutoML Supported Task Types
 image::ch5/visual_5_7_automl_task_types.png[Three cards showing Classification; Regression; and Time-Series Forecasting task types,width=85%]
@@ -189,13 +195,14 @@ AutoML supports several categories of machine learning tasks.
 |*Time-series forecasting* |Predicting future values based on historical trends |Forecasting monthly product demand
 |===
 
+[.definition]
 .Definition: AutoML (Automated Machine Learning)
 ****
 A capability within Azure Machine Learning that automates the process of selecting algorithms, engineering features, tuning hyperparameters, and evaluating models. It enables users to build high-quality models with less manual effort and specialized knowledge.
 ****
 
 
-=== 5.4.3 The AutoML Workflow
+=== The AutoML Workflow
 
 A typical AutoML workflow in Azure Machine Learning Studio follows these general steps:
 
@@ -211,7 +218,7 @@ A typical AutoML workflow in Azure Machine Learning Studio follows these general
 . *Submit the job* and wait for AutoML to train and evaluate multiple models
 . *Review results*, including the best model summary, evaluation metrics, and visualizations such as residual plots or predicted-versus-actual charts
 
-=== 5.4.4 Understanding AutoML Results
+=== Understanding AutoML Results
 
 When an AutoML job completes, the studio presents a summary of the best-performing model along with its evaluation metrics. You can drill into individual metrics, view visualizations that show how predictions compare to actual values, and explore residual distributions to understand where the model performs well and where it struggles.
 
@@ -234,7 +241,7 @@ The AI-900 exam is unlikely to ask you to configure an AutoML job in detail. Ins
 
 
 [[sec-5-5]]
-== 5.5 Azure Machine Learning Designer
+== Azure Machine Learning Designer
 
 .Figure 5.1: Azure ML Designer Canvas
 image::ch5/visual_5_1_azure_ml_designer.png[Mockup of the Designer canvas showing connected pipeline components from dataset to evaluation,width=85%]
@@ -242,19 +249,20 @@ image::ch5/visual_5_1_azure_ml_designer.png[Mockup of the Designer canvas showin
 
 While AutoML automates much of the model-building process, *Azure Machine Learning Designer* takes a different approach: it gives you a visual, drag-and-drop canvas for building machine learning pipelines step by step.
 
-=== 5.5.1 What Is the Designer?
+=== What Is the Designer?
 
 The Designer is a graphical tool within Azure Machine Learning Studio that lets you construct machine learning workflows by dragging components onto a canvas and connecting them visually. Each component represents a specific operation — loading a dataset, splitting data, training a model, scoring predictions, or evaluating results. By connecting these components in sequence, you create a *pipeline* that defines your entire workflow from raw data to evaluated model.
 
 The Designer is especially valuable for users who prefer a visual approach to understanding and building machine learning processes. It requires no coding, though it offers the same rigor as code-based approaches in terms of the operations it performs.
 
+[.definition]
 .Definition: Azure Machine Learning Designer
 ****
 A drag-and-drop visual tool within Azure Machine Learning Studio that enables users to build, test, and deploy machine learning pipelines without writing code. Users connect pre-built components on a canvas to define data processing and model training workflows.
 ****
 
 
-=== 5.5.2 Key Components in the Designer
+=== Key Components in the Designer
 
 The Designer provides a library of pre-built components that you can search and drag onto the canvas. Here are some of the most commonly used categories.
 
@@ -271,7 +279,7 @@ The Designer provides a library of pre-built components that you can search and 
 |*Model Evaluation* |Evaluate Model |Calculate performance metrics for the scored predictions
 |===
 
-=== 5.5.3 Building a Pipeline in the Designer
+=== Building a Pipeline in the Designer
 
 A typical Designer workflow follows this pattern:
 
@@ -287,12 +295,13 @@ A typical Designer workflow follows this pattern:
 . *Submit the pipeline* for execution
 . *Review evaluation results* once the pipeline completes, examining metrics that indicate how well the model performs
 
-=== 5.5.4 Interpreting Designer Results
+=== Interpreting Designer Results
 
 After a pipeline runs successfully, you can inspect the output of the Evaluate Model component to see performance metrics. For a regression pipeline, you would see metrics like MAE, RMSE, and the coefficient of determination (R-squared). For a classification pipeline, you might see accuracy, precision, recall, and the area under the ROC curve (AUC).
 
 These metrics help you determine whether the model is performing well enough for your use case or whether you need to adjust the pipeline — perhaps by trying a different algorithm, adding data transformation steps, or changing the train-test split ratio.
 
+[.reflection]
 .Reflection
 ****
 Imagine you are building a machine learning solution but have limited coding experience. How might the Designer's visual approach change the way you think about the model-building process compared to writing code? What advantages and limitations can you identify?
@@ -301,7 +310,7 @@ Imagine you are building a machine learning solution but have limited coding exp
 
 
 [[sec-5-6]]
-== 5.6 AutoML vs. Designer: Choosing the Right Tool
+== AutoML vs. Designer: Choosing the Right Tool
 
 .Figure 5.4: AutoML vs. Designer Comparison
 image::ch5/visual_5_4_automl_vs_designer.png[Two-column comparison showing AutoML automated approach vs. Designer visual step-by-step approach,width=85%]
@@ -338,7 +347,7 @@ For the AI-900 exam, be prepared to distinguish between AutoML and the Designer.
 
 
 [[sec-5-7]]
-== 5.7 Evaluation Metrics in Azure Machine Learning
+== Evaluation Metrics in Azure Machine Learning
 
 Regardless of whether you use AutoML or the Designer, understanding evaluation metrics is critical for assessing model quality. Azure Machine Learning surfaces these metrics automatically after training runs. The specific metrics displayed depend on the type of task.
 
@@ -381,6 +390,7 @@ A model trained to detect fraudulent credit card transactions predicts fraud in 
 ====
 
 
+[.definition]
 .Definition: Evaluation Metric
 ****
 A quantitative measure used to assess how well a machine learning model performs on a given task. Different metrics are appropriate for different task types (regression vs. classification) and different priorities (e.g., minimizing false positives vs. false negatives).
@@ -389,7 +399,7 @@ A quantitative measure used to assess how well a machine learning model performs
 
 
 [[sec-5-8]]
-== 5.8 Responsible AI in Azure Machine Learning
+== Responsible AI in Azure Machine Learning
 
 .Figure 5.8: Responsible AI Dashboard
 image::ch5/visual_5_8_responsible_ai_dashboard.png[Dashboard mockup showing model explainability; fairness assessment; error analysis; and data transparency panels,width=85%]
@@ -406,6 +416,7 @@ Within Azure Machine Learning, responsible AI capabilities include:
 
 These tools are integrated into the Azure Machine Learning Studio, so practitioners can review responsible AI metrics alongside standard performance metrics when deciding whether a model is ready for deployment.
 
+[.reflection]
 .Reflection
 ****
 Suppose you build an insurance cost prediction model that performs well on average but consistently overestimates costs for a specific demographic group. How would fairness assessment tools help you identify and address this issue before deployment?
