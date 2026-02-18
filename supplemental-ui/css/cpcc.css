@@ -19,7 +19,7 @@
 }
 
 body {
-  background: linear-gradient(180deg, #ffffff 0%, #fbfaf8 100%);
+  background-color: var(--cpcc-gray-fog);
   color: var(--cpcc-gray-ink);
   font-family: "Franklin Gothic URW", "Franklin Gothic", Arial, Roboto, sans-serif;
   line-height: 1.55;
@@ -226,6 +226,20 @@ summary:focus-visible {
 }
 
 /* Main article content */
+.body {
+  background-color: var(--cpcc-gray-fog);
+}
+
+main.article,
+main > .content {
+  background-color: #ffffff;
+}
+
+aside.toc.sidebar,
+.toc.sidebar .toc-menu {
+  background-color: var(--cpcc-gray-fog);
+}
+
 .doc {
   color: var(--cpcc-gray-ink);
 }
