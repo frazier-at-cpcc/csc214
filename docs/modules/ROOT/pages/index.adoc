@@ -1,10 +1,12 @@
-= Azure AI Fundamentals (AI-900): Exam Preparation Guide
+= CSC-214: Artificial Intelligence II
 :author: Central Piedmont Community College — CSC-214
 :revdate: Spring 2026
 
-This textbook was developed as an Open Educational Resource for CSC-214: Introduction to Artificial Intelligence at Central Piedmont Community College. It is designed to prepare students for the *Microsoft Azure AI Fundamentals (AI-900)* certification exam while building a genuine understanding of artificial intelligence concepts.
+This textbook was developed as an Open Educational Resource for CSC-214: Artificial Intelligence II at Central Piedmont Community College. This course is mapped to prepare students for the *Microsoft Azure AI Fundamentals (AI-900)* certification exam while building a genuine understanding of artificial intelligence concepts.
 
-The AI-900 certification validates foundational knowledge of AI workloads and how they are implemented on Microsoft Azure. It is an entry-level credential that requires no programming experience or advanced mathematics -- making it accessible to students from all backgrounds and career paths.
+The AI-900 certification validates foundational knowledge of AI workloads and how they are implemented on Microsoft Azure. It is an entry-level credential that requires no programming experience or advanced mathematics, making it accessible to students from all backgrounds and career paths!
+
+Students will complete roughly one chapter per week, with each chapter designed to be completed in about 2-3 hours of study time. In addition to these chapters, students will complete quizzes within Brightspace and Live Labs within Skillable and Microsoft Learn. The course will culminate in a comprehensive review and practice exam to ensure students are fully prepared for the AI-900 certification.
 
 == How This Book Is Organized
 
